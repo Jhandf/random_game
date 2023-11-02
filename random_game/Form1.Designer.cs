@@ -32,12 +32,6 @@
             this.btn4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSpin = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.txtTokensCount = new System.Windows.Forms.Label();
             this.txtScore = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -50,9 +44,8 @@
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(174, 129);
             this.btn1.TabIndex = 0;
-            this.btn1.Text = "0";
             this.btn1.UseVisualStyleBackColor = false;
-            this.btn1.Click += new System.EventHandler(this.btn_Click);
+            this.btn1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_MouseUp);
             //
             // btn2
             //
@@ -62,9 +55,8 @@
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(174, 129);
             this.btn2.TabIndex = 1;
-            this.btn2.Text = "0";
             this.btn2.UseVisualStyleBackColor = false;
-            this.btn2.Click += new System.EventHandler(this.btn_Click);
+            this.btn2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_MouseUp);
             //
             // btn3
             //
@@ -74,9 +66,8 @@
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(174, 129);
             this.btn3.TabIndex = 2;
-            this.btn3.Text = "0";
             this.btn3.UseVisualStyleBackColor = false;
-            this.btn3.Click += new System.EventHandler(this.btn_Click);
+            this.btn3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_MouseUp);
             //
             // btn6
             //
@@ -86,9 +77,8 @@
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(174, 129);
             this.btn6.TabIndex = 5;
-            this.btn6.Text = "0";
             this.btn6.UseVisualStyleBackColor = false;
-            this.btn6.Click += new System.EventHandler(this.btn_Click);
+            this.btn6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_MouseUp);
             //
             // btn5
             //
@@ -98,9 +88,8 @@
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(174, 129);
             this.btn5.TabIndex = 4;
-            this.btn5.Text = "0";
             this.btn5.UseVisualStyleBackColor = false;
-            this.btn5.Click += new System.EventHandler(this.btn_Click);
+            this.btn5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_MouseUp);
             //
             // btn4
             //
@@ -110,9 +99,8 @@
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(174, 129);
             this.btn4.TabIndex = 3;
-            this.btn4.Text = "0";
             this.btn4.UseVisualStyleBackColor = false;
-            this.btn4.Click += new System.EventHandler(this.btn_Click);
+            this.btn4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_MouseUp);
             //
             // label1
             //
@@ -133,82 +121,31 @@
             this.btnSpin.UseVisualStyleBackColor = true;
             this.btnSpin.Click += new System.EventHandler(this.btnSpin_Click);
             //
-            // textBox1
-            //
-            this.textBox1.Location = new System.Drawing.Point(92, 439);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 26);
-            this.textBox1.TabIndex = 8;
-            //
-            // label2
-            //
-            this.label2.Location = new System.Drawing.Point(92, 413);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 23);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Your pocket:";
-            //
-            // label3
-            //
-            this.label3.Location = new System.Drawing.Point(218, 413);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 23);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Your pocket:";
-            //
-            // textBox2
-            //
-            this.textBox2.Location = new System.Drawing.Point(218, 439);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 26);
-            this.textBox2.TabIndex = 10;
-            //
-            // label4
-            //
-            this.label4.Location = new System.Drawing.Point(344, 413);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 23);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Your pocket:";
-            //
-            // textBox3
-            //
-            this.textBox3.Location = new System.Drawing.Point(344, 439);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(120, 26);
-            this.textBox3.TabIndex = 12;
-            //
             // txtTokensCount
             //
-            this.txtTokensCount.Location = new System.Drawing.Point(12, 347);
+            this.txtTokensCount.Location = new System.Drawing.Point(12, 334);
             this.txtTokensCount.Name = "txtTokensCount";
-            this.txtTokensCount.Size = new System.Drawing.Size(174, 52);
+            this.txtTokensCount.Size = new System.Drawing.Size(174, 76);
             this.txtTokensCount.TabIndex = 14;
-            this.txtTokensCount.Text = "Tokens: 3";
+            this.txtTokensCount.Text = "Tokens:";
             this.txtTokensCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             //
             // txtScore
             //
-            this.txtScore.Location = new System.Drawing.Point(372, 347);
+            this.txtScore.Location = new System.Drawing.Point(372, 334);
             this.txtScore.Name = "txtScore";
-            this.txtScore.Size = new System.Drawing.Size(174, 52);
+            this.txtScore.Size = new System.Drawing.Size(174, 76);
             this.txtScore.TabIndex = 15;
-            this.txtScore.Text = "Your score: 0";
+            this.txtScore.Text = "Your score:";
             this.txtScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             //
             // Form1
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 611);
+            this.ClientSize = new System.Drawing.Size(559, 441);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.txtTokensCount);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnSpin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn6);
@@ -220,19 +157,11 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
-            this.PerformLayout();
         }
 
         private System.Windows.Forms.Label txtScore;
 
         private System.Windows.Forms.Label txtTokensCount;
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
 
         private System.Windows.Forms.Button btnSpin;
 

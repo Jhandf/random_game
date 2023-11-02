@@ -8,9 +8,11 @@ namespace random_game {
     public partial class Form1 : Form {
         private readonly Timer _rollTimer = new Timer();
         private int _totalTicks = 100;
-        private bool _finishRoll;
+        private bool _finishRoll = true;
         private readonly Button[] _buttons = new Button[6];
+        private List<Button> _selectedButtons = new List<Button>();
         private readonly Color[] _initialColors = new Color[6];
+        private readonly int _initialTokenCount = 30;
 
         public Form1() {
             InitializeComponent();
@@ -23,14 +25,16 @@ namespace random_game {
                 _buttons[i] = buttons[i];
                 _initialColors[i] = buttons[i].BackColor;
             }
+
+            updateTokenTxt(_initialTokenCount.ToString());
         }
 
         private void timer_Tick(object sender, EventArgs e) {
             var rolls = updateRolls();
             var rollInt = new int[3];
-            rollInt[0] = int.Parse(rolls[0].ToString());
-            rollInt[1] = int.Parse(rolls[2].ToString());
-            rollInt[2] = int.Parse(rolls[4].ToString());
+            rollInt[0] = int.Parse(rolls.Split(' ')[0]);
+            rollInt[1] = int.Parse(rolls.Split(' ')[1]);
+            rollInt[2] = int.Parse(rolls.Split(' ')[2]);
 
             updateRollTxt(rolls);
             highlightBtn(rollInt);
@@ -38,10 +42,15 @@ namespace random_game {
 
             _totalTicks--;
             _rollTimer.Interval += 1;
-            if (_totalTicks > 0) return;
+            if (_totalTicks > 0)
+                return;
             if (rollInt[0] == rollInt[1] && rollInt[1] == rollInt[2]) {
                 blinkBtn(rollInt[0] - 1);
             }
+
+            updateTokenTxt(getTokenCount() + calcScore(rollInt) > 0
+                ? (getTokenCount() + calcScore(rollInt)).ToString()
+                : @"0");
 
             _rollTimer.Stop();
             _totalTicks = 100;
@@ -49,18 +58,30 @@ namespace random_game {
             _finishRoll = true;
         }
 
-        private void btn_Click(object sender, EventArgs e) {
+        private void btn_MouseUp(object sender, MouseEventArgs e) {
             var btn = (Button)sender;
-            var currentNumber = int.Parse(btn.Text);
+            var currentNumber = getBtnInt(btn);
+            var increment = e.Button == MouseButtons.Left ? 1 : -1;
 
-            if (getTokenCount() != 0 && _finishRoll == false) {
-                updateTokenTxt((getTokenCount() - 1).ToString());
-                setBtnTxt(btn, (currentNumber + 1).ToString());
+            if (getTokenCount() != 0 && _finishRoll == false && _rollTimer.Enabled == false) {
+                var newValue = currentNumber + increment;
+
+                if (_selectedButtons.Count >= 3 && !_selectedButtons.Contains(btn)) return;
+
+                if (newValue >= 0) updateTokenTxt((getTokenCount() - increment).ToString());
+                if (newValue < 0) newValue = 0;
+                if (newValue == 0) {
+                    setBtnTxt(btn, "");
+                    _selectedButtons.Remove(btn);
+                } else {
+                    setBtnTxt(btn, newValue.ToString());
+                    if (!_selectedButtons.Contains(btn)) _selectedButtons.Add(btn);
+                }
             } else if (_finishRoll) {
                 resetBtns();
                 _finishRoll = false;
-                updateTokenTxt(@"2");
-                setBtnTxt(btn, @"1");
+                updateTokenTxt(_initialTokenCount.ToString());
+                btn_MouseUp(sender, e);
             }
         }
 
@@ -75,6 +96,14 @@ namespace random_game {
 
         private static void setBtnTxt(Control btn, string s) {
             btn.Text = s;
+        }
+
+        private static string getBtnTxt(Control btn) {
+            return btn.Text;
+        }
+
+        private static int getBtnInt(Control btn) {
+            return int.TryParse(getBtnTxt(btn), out var i) ? i : 0;
         }
 
         private void updateTokenTxt(string s) {
@@ -94,36 +123,29 @@ namespace random_game {
 
         private static string updateRolls() {
             var rnd = new Random();
-            var randomNumber1 = rnd.Next(1, 6);
-            var randomNumber2 = rnd.Next(1, 6);
-            var randomNumber3 = rnd.Next(1, 6);
+            var randomNumber1 = rnd.Next(1, 7);
+            var randomNumber2 = rnd.Next(1, 7);
+            var randomNumber3 = rnd.Next(1, 7);
             return randomNumber1 + @" " + randomNumber2 + @" " + randomNumber3;
         }
 
         private void resetBtns() {
             for (var i = 0; i < _buttons.Length; i++) {
-                _buttons[i].Text = @"0";
+                setBtnTxt(_buttons[i], "");
                 setBtnColor(_buttons[i], _initialColors[i]);
             }
+            _selectedButtons = new List<Button>();
         }
 
         private int calcScore(IReadOnlyList<int> scores) {
             var score = 0;
             for (var i = 0; i < _buttons.Length; i++) {
                 if (scores[0] == i + 1 && scores[1] == i + 1 && scores[2] == i + 1) {
-                    score += int.Parse(_buttons[i].Text) * 3;
-                } else if (scores[0] == i + 1 && scores[1] == i + 1) {
-                    score += int.Parse(_buttons[i].Text) * 2;
-                } else if (scores[0] == i + 1 && scores[2] == i + 1) {
-                    score += int.Parse(_buttons[i].Text) * 2;
-                } else if (scores[1] == i + 1 && scores[2] == i + 1) {
-                    score += int.Parse(_buttons[i].Text) * 2;
-                } else if (scores[0] == i + 1) {
-                    score += int.Parse(_buttons[i].Text);
-                } else if (scores[1] == i + 1) {
-                    score += int.Parse(_buttons[i].Text);
-                } else if (scores[2] == i + 1) {
-                    score += int.Parse(_buttons[i].Text);
+                    score += getBtnInt(_buttons[i]) * 3;
+                } else {
+                    if (scores[0] == i + 1 || scores[1] == i + 1 || scores[2] == i + 1) {
+                        score += getBtnInt(_buttons[i]);
+                    }
                 }
             }
 
@@ -134,9 +156,9 @@ namespace random_game {
             btn.BackColor = color;
         }
 
-        private void highlightBtn(IReadOnlyList<int> index) {
+        private void highlightBtn(IReadOnlyList<int> indexes) {
             for (var i = 0; i < _buttons.Length; i++) {
-                if (i != index[0] - 1 && i != index[1] - 1 && i != index[2] - 1) {
+                if (i != indexes[0] - 1 && i != indexes[1] - 1 && i != indexes[2] - 1) {
                     setBtnColor(_buttons[i], Color.Gray);
                 } else {
                     setBtnColor(_buttons[i], _initialColors[i]);
