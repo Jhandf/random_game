@@ -12,7 +12,7 @@ namespace random_game {
         private readonly Button[] _buttons = new Button[6];
         private List<Button> _selectedButtons = new List<Button>();
         private readonly Color[] _initialColors = new Color[6];
-        private readonly int _initialTokenCount = 30;
+        private readonly int _initialTokenCount = 100;
 
         public Form1() {
             InitializeComponent();
@@ -62,7 +62,7 @@ namespace random_game {
             var btn = (Button)sender;
             var currentNumber = getBtnInt(btn);
             var increment = e.Button == MouseButtons.Left ? 1 : -1;
-            if (getTokenCount() == 0 && increment == 1) return;
+            if (getTokenCount() == 0 && increment == 1) increment = 0;
 
             if (_finishRoll == false && _rollTimer.Enabled == false) {
                 var newValue = currentNumber + increment;
@@ -81,7 +81,11 @@ namespace random_game {
             } else if (_finishRoll) {
                 resetBtns();
                 _finishRoll = false;
-                updateTokenTxt(_initialTokenCount.ToString());
+                updateTokenTxt(getTokenCount().ToString());
+                if (getTokenCount() == 0) {
+                    updateRollTxt(@"No tokens");
+                    return;
+                }
                 btn_MouseUp(sender, e);
             }
         }
