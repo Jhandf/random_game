@@ -46,6 +46,7 @@
             this.btn1.TabIndex = 0;
             this.btn1.UseVisualStyleBackColor = false;
             this.btn1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_MouseUp);
+            this.btn1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.btn_MouseWheel);
             //
             // btn2
             //
@@ -57,6 +58,7 @@
             this.btn2.TabIndex = 1;
             this.btn2.UseVisualStyleBackColor = false;
             this.btn2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_MouseUp);
+            this.btn2.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.btn_MouseWheel);
             //
             // btn3
             //
@@ -68,6 +70,7 @@
             this.btn3.TabIndex = 2;
             this.btn3.UseVisualStyleBackColor = false;
             this.btn3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_MouseUp);
+            this.btn3.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.btn_MouseWheel);
             //
             // btn6
             //
@@ -79,6 +82,7 @@
             this.btn6.TabIndex = 5;
             this.btn6.UseVisualStyleBackColor = false;
             this.btn6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_MouseUp);
+            this.btn6.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.btn_MouseWheel);
             //
             // btn5
             //
@@ -90,6 +94,7 @@
             this.btn5.TabIndex = 4;
             this.btn5.UseVisualStyleBackColor = false;
             this.btn5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_MouseUp);
+            this.btn5.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.btn_MouseWheel);
             //
             // btn4
             //
@@ -101,6 +106,7 @@
             this.btn4.TabIndex = 3;
             this.btn4.UseVisualStyleBackColor = false;
             this.btn4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_MouseUp);
+            this.btn4.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.btn_MouseWheel);
             //
             // label1
             //

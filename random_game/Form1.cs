@@ -62,8 +62,9 @@ namespace random_game {
             var btn = (Button)sender;
             var currentNumber = getBtnInt(btn);
             var increment = e.Button == MouseButtons.Left ? 1 : -1;
+            if (getTokenCount() == 0 && increment == 1) return;
 
-            if (getTokenCount() != 0 && _finishRoll == false && _rollTimer.Enabled == false) {
+            if (_finishRoll == false && _rollTimer.Enabled == false) {
                 var newValue = currentNumber + increment;
 
                 if (_selectedButtons.Count >= 3 && !_selectedButtons.Contains(btn)) return;
@@ -85,8 +86,12 @@ namespace random_game {
             }
         }
 
+        private void btn_MouseWheel(object sender, MouseEventArgs e) {
+            btn_MouseUp(sender, new MouseEventArgs(e.Delta > 0 ? MouseButtons.Left : MouseButtons.Right, 1, 0, 0, 0));
+        }
+
         private void btnSpin_Click(object sender, EventArgs e) {
-            if (_finishRoll) return;
+            if (_finishRoll || _selectedButtons.Count == 0) return;
             _rollTimer.Start();
         }
 
