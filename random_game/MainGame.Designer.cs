@@ -1,5 +1,5 @@
 ﻿namespace random_game {
-    partial class Form1 {
+    partial class MainGame {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -160,7 +160,7 @@
             this.Controls.Add(this.btn3);
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
-            this.Name = "Form1";
+            this.Name = "MainGame";
             this.Text = "Form1";
             this.ResumeLayout(false);
         }

@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace random_game {
-    public partial class Form1 : Form {
+    public partial class MainGame : Form {
         private readonly Timer _rollTimer = new Timer();
         private int _totalTicks = 100;
         private bool _finishRoll = true;
@@ -14,7 +14,7 @@ namespace random_game {
         private readonly Color[] _initialColors = new Color[6];
         private readonly int _initialTokenCount = 100;
 
-        public Form1() {
+        public MainGame() {
             InitializeComponent();
 
             _rollTimer.Interval = 10;
