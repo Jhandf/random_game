@@ -13,7 +13,7 @@ namespace random_game {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainGame());
+            Application.Run(new StartMenu());
         }
     }
 }
