@@ -26,15 +26,18 @@ namespace random_game {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartMenu));
             this.panel1 = new System.Windows.Forms.Panel();
             this.bnt_Exit = new System.Windows.Forms.PictureBox();
             this.bnt_Option = new System.Windows.Forms.PictureBox();
             this.bnt_Start = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bnt_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bnt_Option)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bnt_Start)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -96,6 +99,16 @@ namespace random_game {
             this.flowLayoutPanel1.Size = new System.Drawing.Size(10, 8);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(12, 83);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(75, 23);
+            this.axWindowsMediaPlayer1.TabIndex = 1;
+            this.axWindowsMediaPlayer1.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
+            // 
             // StartMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -103,14 +116,17 @@ namespace random_game {
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(521, 512);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.Name = "StartMenu";
             this.Text = "StartMenu";
+            this.Load += new System.EventHandler(this.StartMenu_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bnt_Exit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bnt_Option)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bnt_Start)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -122,5 +138,6 @@ namespace random_game {
         private System.Windows.Forms.PictureBox bnt_Option;
         private System.Windows.Forms.PictureBox bnt_Exit;
         private System.Windows.Forms.Panel panel1;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }

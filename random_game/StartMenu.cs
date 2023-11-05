@@ -1,11 +1,17 @@
-﻿using System.Windows.Forms;
+﻿using AxWMPLib;
+using System.Windows.Forms;
 
 namespace random_game {
     public partial class StartMenu : Form {
         public StartMenu() {
             InitializeComponent();
+            axWindowsMediaPlayer1.URL = "C:\\Users\\nguyn\\Source\\Repos\\Tamnemng\\random_game\\random_game\\Resources\\creepy-devil-dance-166764.wav";
+            axWindowsMediaPlayer1.Hide();
         }
-
+        private void StartMenu_Load(object sender, System.EventArgs e)
+        {
+            axWindowsMediaPlayer1.Ctlcontrols.play();
+        }
         private void bnt_Start_Click(object sender, System.EventArgs e)
         {
             MainGame start = new MainGame();
@@ -18,6 +24,7 @@ namespace random_game {
         private void bnt_Option_Click(object sender, System.EventArgs e)
         {
             OptionMenu start = new OptionMenu();
+            StartMenu.MediaPlayer = axWindowsMediaPlayer1; // Set the MediaPlayer property in Form2
             this.Hide();
             start.ShowDialog();
             start.Close();
@@ -58,5 +65,12 @@ namespace random_game {
         {
             bnt_Exit.Image = Properties.Resources.exit_normal;
         }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, System.EventArgs e)
+        {
+
+        }
+
+        
     }
 }
