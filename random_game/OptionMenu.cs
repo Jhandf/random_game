@@ -9,19 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace random_game
-{
-    public partial class OptionMenu : Form
-    {
-        public OptionMenu()
-        {
+namespace random_game {
+    public partial class OptionMenu : Form {
+        public OptionMenu() {
             InitializeComponent();
             int n = trackBar1.Value;
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
+        private void trackBar1_Scroll(object sender, EventArgs e) {
             label1.Text = trackBar1.Value.ToString() + "%";
+            Program.volume = trackBar1.Value;
+            StartMenu.player.settings.volume = trackBar1.Value;
 
             if (trackBar1.Value == 0)
                 pictureBox1.Image = Properties.Resources.sound_off;
@@ -29,26 +27,28 @@ namespace random_game
                 pictureBox1.Image = Properties.Resources.sound_on;
         }
 
-        private void OptionMenu_Load(object sender, EventArgs e)
-        {
-            trackBar1.Value = 100;
-            label1.Text = 100 + "%";
+        private void OptionMenu_Load(object sender, EventArgs e) {
+            trackBar1.Value = Program.volume;
+            label1.Text = Program.volume + "%";
+            if (Program.volume == 0)
+                pictureBox1.Image = Properties.Resources.sound_off;
+
+
         }
 
-        private int previousValue = 0;
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            if (trackBar1.Value != 0)
-            {
-                previousValue = trackBar1.Value;
+
+        private void pictureBox1_Click(object sender, EventArgs e) {
+            if (trackBar1.Value != 0) {
+                Program.prevVolumeValue = trackBar1.Value;
                 trackBar1.Value = 0;
+                Program.volume = 0;
                 label1.Text = "0%";
                 pictureBox1.Image = Properties.Resources.sound_off;
             }
-            else
-            {
-                trackBar1.Value = previousValue;
-                label1.Text = previousValue.ToString() + "%";
+            else {
+                trackBar1.Value = Program.prevVolumeValue;
+                Program.volume = Program.prevVolumeValue;
+                label1.Text = Program.prevVolumeValue + "%";
                 pictureBox1.Image = Properties.Resources.sound_on;
             }
 

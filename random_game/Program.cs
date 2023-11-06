@@ -9,11 +9,15 @@ namespace random_game {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        public static int volume = 100;
+        public static int prevVolumeValue;
         [STAThread]
+
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new StartMenu());
         }
+
     }
 }
