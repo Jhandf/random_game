@@ -62,8 +62,5 @@ namespace random_game {
         private void bnt_Exit_MouseLeave(object sender, EventArgs e) {
             bnt_Exit.Image = Resources.exit_normal;
         }
-
-        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e) {
-        }
     }
 }
