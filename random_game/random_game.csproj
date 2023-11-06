@@ -126,10 +126,15 @@
         <None Include="Resources\backgroundmusic1.png"/>
     </ItemGroup>
     <ItemGroup>
-        <None Include="Resources\creepy-devil-dance-166764.wav"/>
+        <None Include="Resources\creepy-devil-dance-166764.wav" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Resources\option_menu.png"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Content Include="Resources\*">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
     <ItemGroup>
         <COMReference Include="AxWMPLib">
