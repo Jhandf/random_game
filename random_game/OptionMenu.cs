@@ -29,11 +29,13 @@ namespace random_game {
                 Program.prevVolumeValue = trackBar1.Value;
                 trackBar1.Value = 0;
                 Program.volume = 0;
+                StartMenu.player.settings.volume = 0;
                 label1.Text = @"0%";
                 pictureBox1.Image = Resources.sound_off;
             } else {
                 trackBar1.Value = Program.prevVolumeValue;
                 Program.volume = Program.prevVolumeValue;
+                StartMenu.player.settings.volume = Program.prevVolumeValue;
                 label1.Text = Program.prevVolumeValue + @"%";
                 pictureBox1.Image = Resources.sound_on;
             }
