@@ -6,7 +6,7 @@ namespace random_game {
         /// <summary>
         ///     The main entry point for the application.
         /// </summary>
-        public static int volume = 100;
+        public static int volume = 10;
 
         public static int prevVolumeValue;
 
