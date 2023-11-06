@@ -6,13 +6,13 @@ using System.Windows.Forms;
 
 namespace random_game {
     public partial class MainGame : Form {
-        private readonly Timer _rollTimer = new Timer();
-        private int _totalTicks = 100;
-        private bool _finishRoll = true;
         private readonly Button[] _buttons = new Button[6];
-        private List<Button> _selectedButtons = new List<Button>();
         private readonly Color[] _initialColors = new Color[6];
         private readonly int _initialTokenCount = 100;
+        private readonly Timer _rollTimer = new Timer();
+        private bool _finishRoll = true;
+        private List<Button> _selectedButtons = new List<Button>();
+        private int _totalTicks = 100;
 
         public MainGame() {
             InitializeComponent();
@@ -44,9 +44,7 @@ namespace random_game {
             _rollTimer.Interval += 1;
             if (_totalTicks > 0)
                 return;
-            if (rollInt[0] == rollInt[1] && rollInt[1] == rollInt[2]) {
-                blinkBtn(rollInt[0] - 1);
-            }
+            if (rollInt[0] == rollInt[1] && rollInt[1] == rollInt[2]) blinkBtn(rollInt[0] - 1);
 
             updateTokenTxt(getTokenCount() + calcScore(rollInt) > 0
                 ? (getTokenCount() + calcScore(rollInt)).ToString()
@@ -86,6 +84,7 @@ namespace random_game {
                     updateRollTxt(@"No tokens");
                     return;
                 }
+
                 btn_MouseUp(sender, e);
             }
         }
@@ -143,20 +142,18 @@ namespace random_game {
                 setBtnTxt(_buttons[i], "");
                 setBtnColor(_buttons[i], _initialColors[i]);
             }
+
             _selectedButtons = new List<Button>();
         }
 
         private int calcScore(IReadOnlyList<int> scores) {
             var score = 0;
-            for (var i = 0; i < _buttons.Length; i++) {
+            for (var i = 0; i < _buttons.Length; i++)
                 if (scores[0] == i + 1 && scores[1] == i + 1 && scores[2] == i + 1) {
                     score += getBtnInt(_buttons[i]) * 3;
                 } else {
-                    if (scores[0] == i + 1 || scores[1] == i + 1 || scores[2] == i + 1) {
-                        score += getBtnInt(_buttons[i]);
-                    }
+                    if (scores[0] == i + 1 || scores[1] == i + 1 || scores[2] == i + 1) score += getBtnInt(_buttons[i]);
                 }
-            }
 
             return score;
         }
@@ -166,13 +163,11 @@ namespace random_game {
         }
 
         private void highlightBtn(IReadOnlyList<int> indexes) {
-            for (var i = 0; i < _buttons.Length; i++) {
-                if (i != indexes[0] - 1 && i != indexes[1] - 1 && i != indexes[2] - 1) {
+            for (var i = 0; i < _buttons.Length; i++)
+                if (i != indexes[0] - 1 && i != indexes[1] - 1 && i != indexes[2] - 1)
                     setBtnColor(_buttons[i], Color.Gray);
-                } else {
+                else
                     setBtnColor(_buttons[i], _initialColors[i]);
-                }
-            }
         }
 
         private void blinkBtn(int index) {
