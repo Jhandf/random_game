@@ -9,7 +9,6 @@ namespace random_game {
 
         public StartMenu() {
             InitializeComponent();
-            // TODO: Change the path to the music file
             axWindowsMediaPlayer1.URL = @".\Resources\creepy-devil-dance-166764.wav";
             axWindowsMediaPlayer1.Hide();
         }
