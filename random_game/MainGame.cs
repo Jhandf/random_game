@@ -99,7 +99,7 @@ namespace random_game {
         private void btnSpin_Click(object sender, EventArgs e) {
             if (_finishRoll || _selectedButtons.Count == 0) return;
             _rollTimer.Start();
-            using (var start = new Spin_Form()) {
+            using (var start = new SpinForm()) {
                 Hide();
                 start.ShowDialog();
                 int[] resultFromSpinForm = start.RollInt;  // Truy cập giá trị từ Spin_Form
