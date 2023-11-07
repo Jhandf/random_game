@@ -27,6 +27,7 @@ namespace random_game {
             Roll_animation.URL = @".\Resources\\roll.mp4";
             Roll_animation.PlayStateChange += AxWindowsMediaPlayer1_PlayStateChange;
             Roll_animation.ClickEvent += Roll_animation_ClickEvent;
+            Roll_animation.uiMode = "none";
         }
         private void Hide_All() {
             roll_1.Hide();

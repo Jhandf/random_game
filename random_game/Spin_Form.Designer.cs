@@ -37,19 +37,21 @@
             // Roll_animation
             // 
             this.Roll_animation.Enabled = true;
-            this.Roll_animation.Location = new System.Drawing.Point(-3, 0);
+            this.Roll_animation.Location = new System.Drawing.Point(0, 0);
+            this.Roll_animation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Roll_animation.Name = "Roll_animation";
             this.Roll_animation.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("Roll_animation.OcxState")));
-            this.Roll_animation.Size = new System.Drawing.Size(499, 356);
+            this.Roll_animation.Size = new System.Drawing.Size(559, 445);
             this.Roll_animation.TabIndex = 0;
             // 
             // roll_1
             // 
             this.roll_1.BackColor = System.Drawing.Color.Transparent;
             this.roll_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.roll_1.Location = new System.Drawing.Point(70, 0);
+            this.roll_1.Location = new System.Drawing.Point(79, 0);
+            this.roll_1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.roll_1.Name = "roll_1";
-            this.roll_1.Size = new System.Drawing.Size(508, 356);
+            this.roll_1.Size = new System.Drawing.Size(572, 445);
             this.roll_1.TabIndex = 1;
             this.roll_1.TabStop = false;
             this.roll_1.Click += new System.EventHandler(this.roll_Click);
@@ -58,9 +60,10 @@
             // 
             this.roll_2.BackColor = System.Drawing.Color.Transparent;
             this.roll_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.roll_2.Location = new System.Drawing.Point(70, 0);
+            this.roll_2.Location = new System.Drawing.Point(79, 0);
+            this.roll_2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.roll_2.Name = "roll_2";
-            this.roll_2.Size = new System.Drawing.Size(508, 356);
+            this.roll_2.Size = new System.Drawing.Size(572, 445);
             this.roll_2.TabIndex = 2;
             this.roll_2.TabStop = false;
             this.roll_2.Click += new System.EventHandler(this.roll_Click);
@@ -69,25 +72,27 @@
             // 
             this.roll_3.BackColor = System.Drawing.Color.Transparent;
             this.roll_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.roll_3.Location = new System.Drawing.Point(70, 0);
+            this.roll_3.Location = new System.Drawing.Point(79, 0);
+            this.roll_3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.roll_3.Name = "roll_3";
-            this.roll_3.Size = new System.Drawing.Size(508, 356);
+            this.roll_3.Size = new System.Drawing.Size(572, 445);
             this.roll_3.TabIndex = 3;
             this.roll_3.TabStop = false;
             this.roll_3.Click += new System.EventHandler(this.roll_Click);
             // 
             // Spin_Form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(497, 353);
+            this.ClientSize = new System.Drawing.Size(559, 441);
             this.Controls.Add(this.Roll_animation);
             this.Controls.Add(this.roll_3);
             this.Controls.Add(this.roll_2);
             this.Controls.Add(this.roll_1);
             this.ForeColor = System.Drawing.Color.Transparent;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Spin_Form";
             this.Text = "Spin_Form";
             ((System.ComponentModel.ISupportInitialize)(this.Roll_animation)).EndInit();
@@ -95,7 +100,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.roll_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roll_3)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
