@@ -102,13 +102,8 @@ namespace random_game {
             using (var start = new SpinForm()) {
                 Hide();
                 start.ShowDialog();
-                int[] resultFromSpinForm = start.RollInt;  // Truy cập giá trị từ Spin_Form
-
             }
-
             Show();
-
-
         }
 
         private void updateRollTxt(string s) {

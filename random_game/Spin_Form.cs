@@ -36,7 +36,7 @@ namespace random_game {
             roll1.Show();
             roll2.Show();
             roll3.Show();
-            var spacing = 10;
+            const int spacing = 10;
             // Tính toán tổng độ rộng của tất cả pictureBox và khoảng cách giữa chúng
             var totalWidth = (PictureBoxWidth + spacing) * PictureBoxCount - spacing;
             // Tính toán vị trí bắt đầu của hàng ngang để đảm bảo nó giữa form
