@@ -69,9 +69,9 @@ namespace random_game {
                 @".\Resources\nilou.png", @".\Resources\kokomi.png"
             };
 
-            LoadImageIntoPictureBoxHelper(arrayUrl[0], roll1);
-            LoadImageIntoPictureBoxHelper(arrayUrl[1], roll2);
-            LoadImageIntoPictureBoxHelper(arrayUrl[2], roll3);
+            LoadImageIntoPictureBoxHelper(arrayUrl[RollInt[0] - 1], roll1);
+            LoadImageIntoPictureBoxHelper(arrayUrl[RollInt[1] - 1], roll2);
+            LoadImageIntoPictureBoxHelper(arrayUrl[RollInt[2] - 1], roll3);
         }
 
         private void LoadImageIntoPictureBoxHelper(string imagePath, PictureBox pictureBox) {
