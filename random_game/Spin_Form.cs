@@ -12,11 +12,9 @@ using WMPLib;
 
 namespace random_game {
     public partial class Spin_Form : Form {
-
         private const int PictureBoxWidth = 120; // Độ rộng mong muốn của mỗi pictureBox
         private const int PictureBoxHeight = 120; // Độ cao mong muốn của mỗi pictureBox
         private int pictureBoxCount = 3;
-
         public Spin_Form() {
             InitializeComponent();
             InitializeMediaPlayer();
@@ -30,18 +28,15 @@ namespace random_game {
             Roll_animation.PlayStateChange += AxWindowsMediaPlayer1_PlayStateChange;
             Roll_animation.ClickEvent += Roll_animation_ClickEvent;
         }
-
         private void Hide_All() {
             roll_1.Hide();
             roll_2.Hide();
             roll_3.Hide();
         }
-
         private void Show_All() {
             roll_1.Show();
             roll_2.Show();
             roll_3.Show();
-
             int spacing = 10;
             // Tính toán tổng độ rộng của tất cả pictureBox và khoảng cách giữa chúng
             int totalWidth = (PictureBoxWidth + spacing) * pictureBoxCount - spacing;
@@ -52,10 +47,8 @@ namespace random_game {
             // Cấu hình kích thước và vị trí của từng pictureBox
             roll_1.Size = new Size(PictureBoxWidth, PictureBoxHeight);
             roll_1.Location = new Point(startX, startY);
-
             roll_2.Size = new Size(PictureBoxWidth, PictureBoxHeight);
             roll_2.Location = new Point(startX + PictureBoxWidth + spacing, startY);
-
             roll_3.Size = new Size(PictureBoxWidth, PictureBoxHeight);
             roll_3.Location = new Point(startX + 2 * (PictureBoxWidth + spacing), startY);
         }
@@ -102,7 +95,6 @@ namespace random_game {
         private void roll_Click(object sender, EventArgs e) {
             Close();
         }
-
         private void Roll_animation_ClickEvent(object sender, AxWMPLib._WMPOCXEvents_ClickEvent e) {
             Roll_animation.Ctlcontrols.stop();
         }
