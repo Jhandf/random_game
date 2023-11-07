@@ -37,56 +37,56 @@
             // rollAnimation
             // 
             this.rollAnimation.Enabled = true;
-            this.rollAnimation.Location = new System.Drawing.Point(13, 21);
+            this.rollAnimation.Location = new System.Drawing.Point(2, 0);
             this.rollAnimation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rollAnimation.Name = "rollAnimation";
             this.rollAnimation.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("rollAnimation.OcxState")));
-            this.rollAnimation.Size = new System.Drawing.Size(532, 399);
+            this.rollAnimation.Size = new System.Drawing.Size(626, 551);
             this.rollAnimation.TabIndex = 0;
-            // 
+            //
             // roll1
-            // 
+            //
             this.roll1.BackColor = System.Drawing.Color.Transparent;
             this.roll1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.roll1.Location = new System.Drawing.Point(69, 0);
+            this.roll1.Location = new System.Drawing.Point(78, 0);
             this.roll1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.roll1.Name = "roll1";
-            this.roll1.Size = new System.Drawing.Size(508, 356);
+            this.roll1.Size = new System.Drawing.Size(572, 445);
             this.roll1.TabIndex = 1;
             this.roll1.TabStop = false;
             this.roll1.Click += new System.EventHandler(this.roll_Click);
-            // 
+            //
             // roll2
-            // 
+            //
             this.roll2.BackColor = System.Drawing.Color.Transparent;
             this.roll2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.roll2.Location = new System.Drawing.Point(69, 0);
+            this.roll2.Location = new System.Drawing.Point(78, 0);
             this.roll2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.roll2.Name = "roll2";
-            this.roll2.Size = new System.Drawing.Size(508, 356);
+            this.roll2.Size = new System.Drawing.Size(572, 445);
             this.roll2.TabIndex = 2;
             this.roll2.TabStop = false;
             this.roll2.Click += new System.EventHandler(this.roll_Click);
-            // 
+            //
             // roll3
-            // 
+            //
             this.roll3.BackColor = System.Drawing.Color.Transparent;
             this.roll3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.roll3.Location = new System.Drawing.Point(69, 0);
+            this.roll3.Location = new System.Drawing.Point(78, 0);
             this.roll3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.roll3.Name = "roll3";
-            this.roll3.Size = new System.Drawing.Size(508, 356);
+            this.roll3.Size = new System.Drawing.Size(572, 445);
             this.roll3.TabIndex = 3;
             this.roll3.TabStop = false;
             this.roll3.Click += new System.EventHandler(this.roll_Click);
-            // 
+            //
             // SpinForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            //
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(559, 441);
+            this.ClientSize = new System.Drawing.Size(629, 551);
             this.Controls.Add(this.rollAnimation);
             this.Controls.Add(this.roll3);
             this.Controls.Add(this.roll2);
@@ -100,7 +100,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.roll2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roll3)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
