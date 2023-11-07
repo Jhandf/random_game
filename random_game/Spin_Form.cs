@@ -23,6 +23,7 @@ namespace random_game {
             rollAnimation.PlayStateChange += AxWindowsMediaPlayer1_PlayStateChange;
             rollAnimation.ClickEvent += Roll_animation_ClickEvent;
             rollAnimation.uiMode = "none";
+            rollAnimation.Size = Size;
         }
 
         private void Hide_All() {
