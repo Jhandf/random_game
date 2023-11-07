@@ -10,16 +10,11 @@ namespace random_game {
         private readonly Button[] _buttons = new Button[6];
         private readonly Color[] _initialColors = new Color[6];
         private readonly int _initialTokenCount = 100;
-        private readonly Timer _rollTimer = new Timer();
         private bool _finishRoll = true;
         private List<Button> _selectedButtons = new List<Button>();
-        private int _totalTicks = 1;
         public static readonly int[] RollInt = new int[3];
         public MainGame() {
             InitializeComponent();
-
-            _rollTimer.Interval = 1;
-            _rollTimer.Tick += timer_Tick;
 
             Button[] buttons = { btn1, btn2, btn3, btn4, btn5, btn6 };
             for (var i = 0; i < buttons.Length; i++) {
@@ -30,7 +25,7 @@ namespace random_game {
             updateTokenTxt(_initialTokenCount.ToString());
         }
 
-        private void timer_Tick(object sender, EventArgs e) {
+        private void roll() {
             var rolls = updateRolls();
             RollInt[0] = int.Parse(rolls.Split(' ')[0]);
             RollInt[1] = int.Parse(rolls.Split(' ')[1]);
@@ -40,19 +35,12 @@ namespace random_game {
             highlightBtn(RollInt);
             updateScoreTxt(calcScore(RollInt).ToString());
 
-            _totalTicks--;
-            _rollTimer.Interval += 1;
-            if (_totalTicks > 0)
-                return;
             if (RollInt[0] == RollInt[1] && RollInt[1] == RollInt[2]) blinkBtn(RollInt[0] - 1);
 
             updateTokenTxt(getTokenCount() + calcScore(RollInt) > 0
                 ? (getTokenCount() + calcScore(RollInt)).ToString()
                 : @"0");
 
-            _rollTimer.Stop();
-            _totalTicks = 10;
-            _rollTimer.Interval = 10;
             _finishRoll = true;
         }
 
@@ -62,7 +50,7 @@ namespace random_game {
             var increment = e.Button == MouseButtons.Left ? 1 : -1;
             if (getTokenCount() == 0 && increment == 1) increment = 0;
 
-            if (_finishRoll == false && _rollTimer.Enabled == false) {
+            if (_finishRoll == false) {
                 var newValue = currentNumber + increment;
 
                 if (_selectedButtons.Count >= 3 && !_selectedButtons.Contains(btn)) return;
@@ -97,7 +85,7 @@ namespace random_game {
 
         private void btnSpin_Click(object sender, EventArgs e) {
             if (_finishRoll || _selectedButtons.Count == 0) return;
-            _rollTimer.Start();
+            roll();
             using (var start = new SpinForm()) {
                 Hide();
                 start.ShowDialog();
@@ -141,6 +129,7 @@ namespace random_game {
             var randomNumber1 = rnd.Next(1, 7);
             var randomNumber2 = rnd.Next(1, 7);
             var randomNumber3 = rnd.Next(1, 7);
+            Console.WriteLine(randomNumber1 + @" " + randomNumber2 + @" " + randomNumber3);
             return randomNumber1 + @" " + randomNumber2 + @" " + randomNumber3;
         }
 
