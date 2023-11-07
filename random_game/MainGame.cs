@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
+
 namespace random_game {
     public partial class MainGame : Form {
         private readonly Button[] _buttons = new Button[6];
@@ -12,8 +13,8 @@ namespace random_game {
         private readonly Timer _rollTimer = new Timer();
         private bool _finishRoll = true;
         private List<Button> _selectedButtons = new List<Button>();
-        private int _totalTicks = 100;
-
+        private int _totalTicks = 10;
+        public static int[] rollInt = new int[3];
         public MainGame() {
             InitializeComponent();
 
@@ -31,7 +32,7 @@ namespace random_game {
 
         private void timer_Tick(object sender, EventArgs e) {
             var rolls = updateRolls();
-            var rollInt = new int[3];
+            // var rollInt = new int[3];
             rollInt[0] = int.Parse(rolls.Split(' ')[0]);
             rollInt[1] = int.Parse(rolls.Split(' ')[1]);
             rollInt[2] = int.Parse(rolls.Split(' ')[2]);
@@ -51,7 +52,7 @@ namespace random_game {
                 : @"0");
 
             _rollTimer.Stop();
-            _totalTicks = 100;
+            _totalTicks = 10;
             _rollTimer.Interval = 10;
             _finishRoll = true;
         }
@@ -72,11 +73,13 @@ namespace random_game {
                 if (newValue == 0) {
                     setBtnTxt(btn, "");
                     _selectedButtons.Remove(btn);
-                } else {
+                }
+                else {
                     setBtnTxt(btn, newValue.ToString());
                     if (!_selectedButtons.Contains(btn)) _selectedButtons.Add(btn);
                 }
-            } else if (_finishRoll) {
+            }
+            else if (_finishRoll) {
                 resetBtns();
                 _finishRoll = false;
                 updateTokenTxt(getTokenCount().ToString());
@@ -96,6 +99,16 @@ namespace random_game {
         private void btnSpin_Click(object sender, EventArgs e) {
             if (_finishRoll || _selectedButtons.Count == 0) return;
             _rollTimer.Start();
+            using (var start = new Spin_Form()) {
+                Hide();
+                start.ShowDialog();
+                int[] resultFromSpinForm = start.RollInt;  // Truy cập giá trị từ Spin_Form
+
+            }
+
+            Show();
+
+
         }
 
         private void updateRollTxt(string s) {
@@ -151,7 +164,8 @@ namespace random_game {
             for (var i = 0; i < _buttons.Length; i++)
                 if (scores[0] == i + 1 && scores[1] == i + 1 && scores[2] == i + 1) {
                     score += getBtnInt(_buttons[i]) * 3;
-                } else {
+                }
+                else {
                     if (scores[0] == i + 1 || scores[1] == i + 1 || scores[2] == i + 1) score += getBtnInt(_buttons[i]);
                 }
 
@@ -178,7 +192,8 @@ namespace random_game {
                 if (ticks <= 0) {
                     blinkTimer.Stop();
                     setBtnColor(_buttons[index], _initialColors[index]);
-                } else {
+                }
+                else {
                     setBtnColor(_buttons[index],
                         _buttons[index].BackColor == Color.Gray ? _initialColors[index] : Color.Gray);
                     ticks--;
