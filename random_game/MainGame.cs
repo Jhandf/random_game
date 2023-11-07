@@ -13,12 +13,12 @@ namespace random_game {
         private readonly Timer _rollTimer = new Timer();
         private bool _finishRoll = true;
         private List<Button> _selectedButtons = new List<Button>();
-        private int _totalTicks = 10;
-        public static int[] rollInt = new int[3];
+        private int _totalTicks = 1;
+        public static readonly int[] RollInt = new int[3];
         public MainGame() {
             InitializeComponent();
 
-            _rollTimer.Interval = 10;
+            _rollTimer.Interval = 1;
             _rollTimer.Tick += timer_Tick;
 
             Button[] buttons = { btn1, btn2, btn3, btn4, btn5, btn6 };
@@ -32,23 +32,22 @@ namespace random_game {
 
         private void timer_Tick(object sender, EventArgs e) {
             var rolls = updateRolls();
-            // var rollInt = new int[3];
-            rollInt[0] = int.Parse(rolls.Split(' ')[0]);
-            rollInt[1] = int.Parse(rolls.Split(' ')[1]);
-            rollInt[2] = int.Parse(rolls.Split(' ')[2]);
+            RollInt[0] = int.Parse(rolls.Split(' ')[0]);
+            RollInt[1] = int.Parse(rolls.Split(' ')[1]);
+            RollInt[2] = int.Parse(rolls.Split(' ')[2]);
 
             updateRollTxt(rolls);
-            highlightBtn(rollInt);
-            updateScoreTxt(calcScore(rollInt).ToString());
+            highlightBtn(RollInt);
+            updateScoreTxt(calcScore(RollInt).ToString());
 
             _totalTicks--;
             _rollTimer.Interval += 1;
             if (_totalTicks > 0)
                 return;
-            if (rollInt[0] == rollInt[1] && rollInt[1] == rollInt[2]) blinkBtn(rollInt[0] - 1);
+            if (RollInt[0] == RollInt[1] && RollInt[1] == RollInt[2]) blinkBtn(RollInt[0] - 1);
 
-            updateTokenTxt(getTokenCount() + calcScore(rollInt) > 0
-                ? (getTokenCount() + calcScore(rollInt)).ToString()
+            updateTokenTxt(getTokenCount() + calcScore(RollInt) > 0
+                ? (getTokenCount() + calcScore(RollInt)).ToString()
                 : @"0");
 
             _rollTimer.Stop();

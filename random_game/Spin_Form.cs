@@ -16,7 +16,7 @@ namespace random_game {
             Hide_All();
         }
 
-        public int[] RollInt { get; private set; }
+        private int[] RollInt { get; set; }
 
         private void InitializeMediaPlayer() {
             rollAnimation.URL = @".\Resources\roll.mp4";
@@ -56,7 +56,7 @@ namespace random_game {
             if (rollAnimation.playState == WMPPlayState.wmppsMediaEnded ||
                 rollAnimation.playState == WMPPlayState.wmppsStopped) {
                 rollAnimation.Hide();
-                RollInt = MainGame.rollInt;
+                RollInt = MainGame.RollInt;
                 LoadImageIntoPictureBox();
                 Show_All();
             }
