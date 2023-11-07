@@ -41,7 +41,8 @@
             this.rollAnimation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rollAnimation.Name = "rollAnimation";
             this.rollAnimation.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("rollAnimation.OcxState")));
-            this.rollAnimation.Size = new System.Drawing.Size(626, 551);
+            // this.rollAnimation.Size = new System.Drawing.Size(278, 244);
+            this.rollAnimation.Size = new System.Drawing.Size(0, 0);
             this.rollAnimation.TabIndex = 0;
             //
             // roll1
