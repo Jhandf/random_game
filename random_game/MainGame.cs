@@ -110,7 +110,7 @@ namespace random_game {
         }
 
         private void updateTokenTxt(string s) {
-            var text = @"Tokens: " + tokenUnitChanges(s);
+            var text = @"Tokens: " + tokenScale(s);
             txtTokensCount.Text = text;
         }
 
@@ -120,7 +120,7 @@ namespace random_game {
         }
 
         private void updateScoreTxt(string s) {
-            var text = @"Your score: " + tokenUnitChanges(s);
+            var text = @"Your score: " + tokenScale(s);
             txtScore.Text = text;
         }
 
@@ -185,9 +185,9 @@ namespace random_game {
             blinkTimer.Start();
         }
 
-        private string tokenUnitChanges(string token)
+        private static string tokenScale(string token)
         {
-            int nToken = int.Parse(token);
+            var nToken = int.Parse(token);
             int count = 0;
             while (nToken >= 1000)
             {
