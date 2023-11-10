@@ -110,7 +110,7 @@ namespace random_game {
         }
 
         private void updateTokenTxt(string s) {
-            var text = @"Tokens: " + s;
+            var text = @"Tokens: " + tokenScale(s);
             txtTokensCount.Text = text;
         }
 
@@ -120,7 +120,7 @@ namespace random_game {
         }
 
         private void updateScoreTxt(string s) {
-            var text = @"Your score: " + s;
+            var text = @"Your score: " + tokenScale(s);
             txtScore.Text = text;
         }
 
@@ -183,6 +183,25 @@ namespace random_game {
                 }
             };
             blinkTimer.Start();
+        }
+
+        private static string tokenScale(string token) {
+            var nToken = int.Parse(token);
+            var count = 0;
+            while (nToken >= 1000) {
+                token = (nToken / 1000).ToString();
+                nToken /= 1000;
+                count++;
+            }
+            if (count == 1)
+                token += "K";
+            else if (count == 2)
+                token += "M";
+            else if (count == 3)
+                token += "B";
+            else if (count == 4)
+                token += "T";
+            return token;
         }
     }
 }

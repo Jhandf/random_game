@@ -26,8 +26,8 @@
         private void InitializeComponent() {
             this.label1 = new System.Windows.Forms.Label();
             this.btnSpin = new System.Windows.Forms.Button();
-            this.txtTokensCount = new System.Windows.Forms.Label();
             this.txtScore = new System.Windows.Forms.Label();
+            this.txtTokensCount = new System.Windows.Forms.Label();
             this.btn6 = new System.Windows.Forms.Button();
             this.btn5 = new System.Windows.Forms.Button();
             this.btn4 = new System.Windows.Forms.Button();
@@ -56,15 +56,6 @@
             this.btnSpin.UseVisualStyleBackColor = true;
             this.btnSpin.Click += new System.EventHandler(this.btnSpin_Click);
             // 
-            // txtTokensCount
-            // 
-            this.txtTokensCount.Location = new System.Drawing.Point(12, 396);
-            this.txtTokensCount.Name = "txtTokensCount";
-            this.txtTokensCount.Size = new System.Drawing.Size(155, 61);
-            this.txtTokensCount.TabIndex = 14;
-            this.txtTokensCount.Text = "Tokens:";
-            this.txtTokensCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // txtScore
             // 
             this.txtScore.Location = new System.Drawing.Point(332, 396);
@@ -73,6 +64,17 @@
             this.txtScore.TabIndex = 15;
             this.txtScore.Text = "Your score:";
             this.txtScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtTokensCount
+            // 
+            this.txtTokensCount.Image = global::random_game.Properties.Resources.Token;
+            this.txtTokensCount.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.txtTokensCount.Location = new System.Drawing.Point(12, 396);
+            this.txtTokensCount.Name = "txtTokensCount";
+            this.txtTokensCount.Size = new System.Drawing.Size(155, 61);
+            this.txtTokensCount.TabIndex = 14;
+            this.txtTokensCount.Text = "Tokens:";
+            this.txtTokensCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn6
             // 
