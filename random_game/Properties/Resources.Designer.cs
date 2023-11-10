@@ -81,11 +81,51 @@ namespace random_game.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chon {
+            get {
+                object obj = ResourceManager.GetObject("chon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap chon1 {
+            get {
+                object obj = ResourceManager.GetObject("chon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap conco {
+            get {
+                object obj = ResourceManager.GetObject("conco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream creepy_devil_dance_166764 {
             get {
                 return ResourceManager.GetStream("creepy_devil_dance_166764", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cua {
+            get {
+                object obj = ResourceManager.GetObject("cua", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -112,9 +152,19 @@ namespace random_game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap kokomi {
+        internal static System.Drawing.Bitmap heo {
             get {
-                object obj = ResourceManager.GetObject("kokomi", resourceCulture);
+                object obj = ResourceManager.GetObject("heo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap khum {
+            get {
+                object obj = ResourceManager.GetObject("khum", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -132,26 +182,6 @@ namespace random_game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap neuvillete {
-            get {
-                object obj = ResourceManager.GetObject("neuvillete", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap nilou {
-            get {
-                object obj = ResourceManager.GetObject("nilou", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap option_menu {
             get {
                 object obj = ResourceManager.GetObject("option_menu", resourceCulture);
@@ -162,9 +192,19 @@ namespace random_game.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap raiden {
+        internal static System.Drawing.Bitmap return_Hover {
             get {
-                object obj = ResourceManager.GetObject("raiden", resourceCulture);
+                object obj = ResourceManager.GetObject("return_Hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap return_Normal {
+            get {
+                object obj = ResourceManager.GetObject("return_Normal", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -205,26 +245,6 @@ namespace random_game.Properties {
         internal static System.Drawing.Bitmap start_normal {
             get {
                 object obj = ResourceManager.GetObject("start_normal", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap wanderer {
-            get {
-                object obj = ResourceManager.GetObject("wanderer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap zongli {
-            get {
-                object obj = ResourceManager.GetObject("zongli", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

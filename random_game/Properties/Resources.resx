@@ -122,18 +122,9 @@
     <value>..\Resources\backgroundmusic_hover1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0,
             Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="wanderer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wanderer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="nilou" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nilou.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="option_menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\option_menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="neuvillete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\neuvillete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exit_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
@@ -146,12 +137,6 @@
   <data name="start_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\start_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="raiden" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\raiden.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="zongli" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zongli.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sound on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sound on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
@@ -177,7 +162,28 @@
     <value>..\Resources\menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="kokomi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\kokomi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="chon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="conco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\conco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cua" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\heo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="khum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\khum.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="return_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\return_Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="return_Normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\return_Normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

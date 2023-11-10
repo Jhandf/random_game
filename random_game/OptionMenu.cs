@@ -40,5 +40,17 @@ namespace random_game {
             label1.Text = Program.prevVolumeValue + @"%";
             pictureBox1.Image = Resources.sound_on;
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e) {
+            Hide();
+        }
+
+        private void pictureBox2_MouseHover(object sender, EventArgs e) {
+            pictureBox2.Image = Resources.return_Hover;
+        }
+
+        private void pictureBox2_MouseLeave(object sender, EventArgs e) {
+            pictureBox2.Image = Resources.return_Normal;
+        }
     }
 }

@@ -108,40 +108,104 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\exit_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\exit_normal.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\menu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sound off.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sound on.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\start_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\start_normal.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgroundmusic_hover1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgroundmusic1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\creepy-devil-dance-166764.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\option_menu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\*">
+    <Content Include="Resources\backgroundmusic.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\backgroundmusic1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\backgroundmusic_hover.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\backgroundmusic_hover1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\chon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\chon.png" />
+    <Content Include="Resources\chon1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\chon1.png" />
+    <Content Include="Resources\conco.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\conco.png" />
+    <Content Include="Resources\creepy-devil-dance-166764.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\cua.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\cua.png" />
+    <Content Include="Resources\exit_hover.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\exit_normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\heo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\heo.png" />
+    <Content Include="Resources\khum.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\khum.png" />
+    <Content Include="Resources\kokomi.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\kokomi1.png" />
+    <None Include="Resources\kokomi2.png" />
+    <Content Include="Resources\menu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\neuvillete.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\nilou.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\nilou1.png" />
+    <None Include="Resources\nilou2.png" />
+    <Content Include="Resources\option_hover.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\option_menu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\option_normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\raiden.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\raiden1.png" />
+    <None Include="Resources\raiden2.png" />
+    <None Include="Resources\return_Normal.png" />
+    <None Include="Resources\return_Hover.png" />
+    <Content Include="Resources\roll.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\sound off.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\sound on.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\start_hover.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\start_normal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\wanderer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\wanderer1.png" />
+    <None Include="Resources\wanderer2.png" />
+    <Content Include="Resources\zongli.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
