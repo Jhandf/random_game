@@ -187,8 +187,8 @@ namespace random_game {
 
         private static string tokenScale(string token)
         {
-            var nToken = int.Parse(token);
-            int count = 0;
+            int nToken = int.Parse(token);
+            var count = 0;
             while (nToken >= 1000)
             {
                 token = (nToken / 1000).ToString();
