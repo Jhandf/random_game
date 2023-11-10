@@ -200,6 +200,7 @@
     <Content Include="Resources\start_normal.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Token.png" />
     <Content Include="Resources\wanderer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
