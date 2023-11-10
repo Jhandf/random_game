@@ -185,12 +185,10 @@ namespace random_game {
             blinkTimer.Start();
         }
 
-        private static string tokenScale(string token)
-        {
+        private static string tokenScale(string token) {
             int nToken = int.Parse(token);
             var count = 0;
-            while (nToken >= 1000)
-            {
+            while (nToken >= 1000) {
                 token = (nToken / 1000).ToString();
                 nToken /= 1000;
                 count++;
