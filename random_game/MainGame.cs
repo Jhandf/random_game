@@ -184,5 +184,9 @@ namespace random_game {
             };
             blinkTimer.Start();
         }
+
+        private void MainGame_Load(object sender, EventArgs e) {
+
+        }
     }
 }
