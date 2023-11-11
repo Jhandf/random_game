@@ -71,11 +71,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Spin_Form.cs">
+    <Compile Include="SpinForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Spin_Form.Designer.cs">
-      <DependentUpon>Spin_Form.cs</DependentUpon>
+    <Compile Include="SpinForm.Designer.cs">
+      <DependentUpon>SpinForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StartMenu.cs">
       <SubType>Form</SubType>
@@ -109,8 +109,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Spin_Form.resx">
-      <DependentUpon>Spin_Form.cs</DependentUpon>
+    <EmbeddedResource Include="SpinForm.resx">
+      <DependentUpon>SpinForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartMenu.resx">
       <DependentUpon>StartMenu.cs</DependentUpon>
@@ -180,22 +180,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\khum.png" />
-    <Content Include="Resources\kokomi.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Resources\kokomi1.png" />
-    <None Include="Resources\kokomi2.png" />
     <Content Include="Resources\menu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\neuvillete.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\nilou.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Resources\nilou1.png" />
-    <None Include="Resources\nilou2.png" />
     <Content Include="Resources\option_hover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -205,11 +192,6 @@
     <Content Include="Resources\option_normal.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\raiden.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Resources\raiden1.png" />
-    <None Include="Resources\raiden2.png" />
     <None Include="Resources\return_Normal.png" />
     <None Include="Resources\return_Hover.png" />
     <Content Include="Resources\roll.mp4">
@@ -228,14 +210,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Token.png" />
-    <Content Include="Resources\wanderer.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Resources\wanderer1.png" />
-    <None Include="Resources\wanderer2.png" />
-    <Content Include="Resources\zongli.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxWMPLib">
