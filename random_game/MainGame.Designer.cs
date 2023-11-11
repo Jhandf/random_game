@@ -75,6 +75,7 @@
             this.txtTokensCount.TabIndex = 14;
             this.txtTokensCount.Text = "Tokens:";
             this.txtTokensCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtTokensCount.Click += new System.EventHandler(this.txtTokensCount_Click);
             // 
             // btn6
             // 

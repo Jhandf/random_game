@@ -9,10 +9,11 @@ namespace random_game {
     public partial class MainGame : Form {
         private readonly Button[] _buttons = new Button[6];
         private readonly Color[] _initialColors = new Color[6];
-        private readonly int _initialTokenCount = 100;
+        public static int _initialTokenCount = 100;
         private bool _finishRoll = true;
         private List<Button> _selectedButtons = new List<Button>();
         public static readonly int[] RollInt = new int[3];
+
         public MainGame() {
             InitializeComponent();
 
@@ -114,7 +115,12 @@ namespace random_game {
             txtTokensCount.Text = text;
         }
 
-        private int getTokenCount() {
+        public string _updateTokenTxt(string s) {
+            var text = @"Tokens: " + tokenScale(s);
+            return text;
+        }
+
+        public int getTokenCount() {
             var rePattern = new Regex(@"(?<=:\s)*\d+");
             return int.Parse(rePattern.Match(txtTokensCount.Text).Value);
         }
@@ -202,6 +208,14 @@ namespace random_game {
             else if (count == 4)
                 token += "T";
             return token;
+        }
+
+        private void txtTokensCount_Click(object sender, EventArgs e) {
+            using (var start = new tokenMenu()) {
+                //Hide();
+                start.ShowDialog();
+                updateTokenTxt(_initialTokenCount.ToString());
+            }
         }
     }
 }
