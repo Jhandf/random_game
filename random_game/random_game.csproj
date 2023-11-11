@@ -153,22 +153,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\khum.png" />
-    <Content Include="Resources\kokomi.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Resources\kokomi1.png" />
-    <None Include="Resources\kokomi2.png" />
     <Content Include="Resources\menu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\neuvillete.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\nilou.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Resources\nilou1.png" />
-    <None Include="Resources\nilou2.png" />
     <Content Include="Resources\option_hover.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -178,11 +165,6 @@
     <Content Include="Resources\option_normal.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\raiden.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Resources\raiden1.png" />
-    <None Include="Resources\raiden2.png" />
     <None Include="Resources\return_Normal.png" />
     <None Include="Resources\return_Hover.png" />
     <Content Include="Resources\roll.mp4">
@@ -201,14 +183,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Token.png" />
-    <Content Include="Resources\wanderer.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <None Include="Resources\wanderer1.png" />
-    <None Include="Resources\wanderer2.png" />
-    <Content Include="Resources\zongli.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxWMPLib">

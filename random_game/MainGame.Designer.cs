@@ -127,6 +127,7 @@
             this.btn3.BackgroundImage = global::random_game.Properties.Resources.conco;
             this.btn3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn3.Location = new System.Drawing.Point(331, 51);
             this.btn3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn3.Name = "btn3";
