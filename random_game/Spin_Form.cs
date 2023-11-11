@@ -20,6 +20,7 @@ namespace random_game {
 
         private void InitializeMediaPlayer() {
             rollAnimation.URL = @".\Resources\roll.mp4";
+            rollAnimation.settings.volume = 0;
             rollAnimation.PlayStateChange += AxWindowsMediaPlayer1_PlayStateChange;
             rollAnimation.ClickEvent += Roll_animation_ClickEvent;
             rollAnimation.uiMode = "none";
@@ -64,9 +65,9 @@ namespace random_game {
 
         private void LoadImageIntoPictureBox() {
             string[] arrayUrl = {
-                @".\Resources\wanderer.png", @".\Resources\neuvillete.png",
-                @".\Resources\zongli.png", @".\Resources\raiden.png",
-                @".\Resources\nilou.png", @".\Resources\kokomi.png"
+                @".\Resources\chon1.png", @".\Resources\heo.png",
+                @".\Resources\conco.png", @".\Resources\cua.png",
+                @".\Resources\khum.png", @".\Resources\chon.png"
             };
 
             LoadImageIntoPictureBoxHelper(arrayUrl[RollInt[0] - 1], roll1);
@@ -98,6 +99,10 @@ namespace random_game {
 
         private void Roll_animation_ClickEvent(object sender, _WMPOCXEvents_ClickEvent e) {
             rollAnimation.Ctlcontrols.stop();
+        }
+
+        private void SpinForm_Click(object sender, EventArgs e) {
+            Close();
         }
     }
 }
