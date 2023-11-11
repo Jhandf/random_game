@@ -65,11 +65,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Spin_Form.cs">
+    <Compile Include="SpinForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Spin_Form.Designer.cs">
-      <DependentUpon>Spin_Form.cs</DependentUpon>
+    <Compile Include="SpinForm.Designer.cs">
+      <DependentUpon>SpinForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StartMenu.cs">
       <SubType>Form</SubType>
@@ -88,8 +88,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Spin_Form.resx">
-      <DependentUpon>Spin_Form.cs</DependentUpon>
+    <EmbeddedResource Include="SpinForm.resx">
+      <DependentUpon>SpinForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartMenu.resx">
       <DependentUpon>StartMenu.cs</DependentUpon>
