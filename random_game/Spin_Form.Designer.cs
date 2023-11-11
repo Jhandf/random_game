@@ -24,25 +24,15 @@
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpinForm));
-            this.rollAnimation = new AxWMPLib.AxWindowsMediaPlayer();
             this.roll1 = new System.Windows.Forms.PictureBox();
             this.roll2 = new System.Windows.Forms.PictureBox();
             this.roll3 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.rollAnimation)).BeginInit();
+            this.rollAnimation = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.roll1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roll2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roll3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rollAnimation)).BeginInit();
             this.SuspendLayout();
-            // 
-            // rollAnimation
-            // 
-            this.rollAnimation.Enabled = true;
-            this.rollAnimation.Location = new System.Drawing.Point(2, 0);
-            this.rollAnimation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rollAnimation.Name = "rollAnimation";
-            this.rollAnimation.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("rollAnimation.OcxState")));
-            this.rollAnimation.Size = new System.Drawing.Size(0, 0);
-            this.rollAnimation.TabIndex = 0;
             // 
             // roll1
             // 
@@ -80,6 +70,16 @@
             this.roll3.TabStop = false;
             this.roll3.Click += new System.EventHandler(this.roll_Click);
             // 
+            // rollAnimation
+            // 
+            this.rollAnimation.Enabled = true;
+            this.rollAnimation.Location = new System.Drawing.Point(2, 0);
+            this.rollAnimation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rollAnimation.Name = "rollAnimation";
+            this.rollAnimation.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("rollAnimation.OcxState")));
+            this.rollAnimation.Size = new System.Drawing.Size(0, 0);
+            this.rollAnimation.TabIndex = 0;
+            // 
             // SpinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -88,17 +88,18 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(559, 441);
             this.Controls.Add(this.rollAnimation);
-            this.Controls.Add(this.roll3);
             this.Controls.Add(this.roll2);
             this.Controls.Add(this.roll1);
+            this.Controls.Add(this.roll3);
             this.ForeColor = System.Drawing.Color.Transparent;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SpinForm";
             this.Text = "Spin_Form";
-            ((System.ComponentModel.ISupportInitialize)(this.rollAnimation)).EndInit();
+            this.Click += new System.EventHandler(this.SpinForm_Click);
             ((System.ComponentModel.ISupportInitialize)(this.roll1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roll2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.roll3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rollAnimation)).EndInit();
             this.ResumeLayout(false);
 
         }
