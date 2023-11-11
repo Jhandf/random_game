@@ -30,7 +30,6 @@ namespace random_game {
                 txtTokensCount.Text = game._updateTokenTxt(tokenCount.ToString());
             };
 
-            // Hiển thị form EnterGiftCode
             giftCodeForm.ShowDialog();
         }
 

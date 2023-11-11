@@ -20,7 +20,7 @@ namespace random_game {
         }
 
         private void btnSubmit_Click(object sender, EventArgs e) {
-            var newTokenCount = 100; // Thay thế giá trị mới tùy theo logic của bạn
+            var newTokenCount = 100;
             if (strGiftCode == txtGiftCode.Text || strGift1 == txtGiftCode.Text) {
                 tokenCountUpdated?.Invoke(newTokenCount);
                 txtGiftCode.Text = "";

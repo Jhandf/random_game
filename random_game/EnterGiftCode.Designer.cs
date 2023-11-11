@@ -58,6 +58,8 @@
             this.ClientSize = new System.Drawing.Size(304, 91);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtGiftCode);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "EnterGiftCode";
             this.Text = "EnterGiftCode";
             this.ResumeLayout(false);

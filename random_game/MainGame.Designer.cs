@@ -24,6 +24,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainGame));
             this.label1 = new System.Windows.Forms.Label();
             this.btnSpin = new System.Windows.Forms.Button();
             this.txtScore = new System.Windows.Forms.Label();
@@ -67,7 +68,7 @@
             // 
             // txtTokensCount
             // 
-            this.txtTokensCount.Image = global::random_game.Properties.Resources.Token;
+            this.txtTokensCount.Image = ((System.Drawing.Image)(resources.GetObject("txtTokensCount.Image")));
             this.txtTokensCount.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.txtTokensCount.Location = new System.Drawing.Point(12, 396);
             this.txtTokensCount.Name = "txtTokensCount";
@@ -76,6 +77,8 @@
             this.txtTokensCount.Text = "Tokens:";
             this.txtTokensCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.txtTokensCount.Click += new System.EventHandler(this.txtTokensCount_Click);
+            this.txtTokensCount.MouseLeave += new System.EventHandler(this.txtTokensCount_MouseLeave);
+            this.txtTokensCount.MouseHover += new System.EventHandler(this.txtTokensCount_MouseHover);
             // 
             // btn6
             // 
@@ -195,8 +198,6 @@
 
         private System.Windows.Forms.Label txtScore;
 
-        private System.Windows.Forms.Label txtTokensCount;
-
         private System.Windows.Forms.Button btnSpin;
 
         private System.Windows.Forms.Button btn2;
@@ -209,5 +210,7 @@
         private System.Windows.Forms.Button btn1;
 
         #endregion
+
+        private System.Windows.Forms.Label txtTokensCount;
     }
 }

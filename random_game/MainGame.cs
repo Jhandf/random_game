@@ -217,5 +217,15 @@ namespace random_game {
                 updateTokenTxt(_initialTokenCount.ToString());
             }
         }
+
+        private void txtTokensCount_MouseHover(object sender, EventArgs e) {
+            txtTokensCount.Text = "Add Token";
+            txtTokensCount.Image = Properties.Resources.iconAdd;
+        }
+
+        private void txtTokensCount_MouseLeave(object sender, EventArgs e) {
+            updateTokenTxt(_initialTokenCount.ToString());
+            txtTokensCount.Image = Properties.Resources.iconToken;
+        }
     }
 }
