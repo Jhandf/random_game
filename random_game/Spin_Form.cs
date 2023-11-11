@@ -24,7 +24,9 @@ namespace random_game {
             rollAnimation.PlayStateChange += AxWindowsMediaPlayer1_PlayStateChange;
             rollAnimation.ClickEvent += Roll_animation_ClickEvent;
             rollAnimation.uiMode = "none";
+            rollAnimation.stretchToFit = true;
             rollAnimation.Size = Size;
+            rollAnimation.Location = new Point((ClientSize.Width - rollAnimation.Width) / 2, (ClientSize.Height - rollAnimation.Height) / 2);
         }
 
         private void Hide_All() {
