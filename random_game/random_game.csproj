@@ -104,11 +104,11 @@
         <Compile Include="TokenMenu.Designer.cs">
             <DependentUpon>TokenMenu.cs</DependentUpon>
         </Compile>
-        <Compile Include="WatchADS.cs">
+        <Compile Include="WatchAds.cs">
             <SubType>Form</SubType>
         </Compile>
-        <Compile Include="WatchADS.Designer.cs">
-            <DependentUpon>WatchADS.cs</DependentUpon>
+        <Compile Include="WatchAds.Designer.cs">
+            <DependentUpon>WatchAds.cs</DependentUpon>
         </Compile>
         <EmbeddedResource Include="EnterGiftCode.resx">
             <DependentUpon>EnterGiftCode.cs</DependentUpon>
@@ -134,8 +134,8 @@
         <EmbeddedResource Include="TokenMenu.resx">
             <DependentUpon>TokenMenu.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="WatchADS.resx">
-            <DependentUpon>WatchADS.cs</DependentUpon>
+        <EmbeddedResource Include="WatchAds.resx">
+            <DependentUpon>WatchAds.cs</DependentUpon>
             <SubType>Designer</SubType>
         </EmbeddedResource>
         <None Include="Properties\Settings.settings">

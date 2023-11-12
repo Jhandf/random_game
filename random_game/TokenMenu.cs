@@ -22,7 +22,7 @@ namespace random_game {
         private void btnGiftCode_Click(object sender, EventArgs e) {
             var giftCodeForm = new EnterGiftCode();
 
-            giftCodeForm.tokenCountUpdated += (newTokenCount) => {
+            giftCodeForm.TokenCountUpdated += (newTokenCount) => {
                 _tokenCount += newTokenCount;
                 txtTokensCount.Text = _tokenCount.ToString();
             };
@@ -31,9 +31,9 @@ namespace random_game {
         }
 
         private void btnClickADS_Click(object sender, EventArgs e) {
-            var watch = new WatchADS();
+            var watch = new WatchAds();
 
-            watch.activateStatus += (timeStatus) => {
+            watch.ActivateStatus += (timeStatus) => {
                 if (timeStatus != 0) return;
                 _tokenCount += 100;
                 txtTokensCount.Text = _tokenCount.ToString();

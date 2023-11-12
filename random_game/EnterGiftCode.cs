@@ -10,16 +10,15 @@ using System.Windows.Forms;
 
 namespace random_game {
     public partial class EnterGiftCode : Form {
-        private static readonly string[] strGift = new string[]
-            { "9T96KJNE2LVM", "NTQP2KPEJMUH", "VA97KJNF24UV", "ZT8MLL8GCYKM", "WA845MQHUHKH", "3BRLL59ZCZKD" };
+        private static readonly string[] strGift = { "9T96KJNE2LVM", "NTQP2KPEJMUH", "VA97KJNF24UV", "ZT8MLL8GCYKM", "WA845MQHUHKH", "3BRLL59ZCZKD" };
 
-        private bool[] _activate = new bool[strGift.Length];
+        private readonly bool[] _activate = new bool[strGift.Length];
 
-        public event Action<int> tokenCountUpdated;
+        public event Action<int> TokenCountUpdated;
 
         public EnterGiftCode() {
             InitializeComponent();
-            for (int i = 0; i < strGift.Length; i++)
+            for (var i = 0; i < strGift.Length; i++)
                 _activate[i] = false;
         }
 
@@ -28,21 +27,20 @@ namespace random_game {
                 if (strGift[i] == txtGiftCode.Text) {
                     if (!_activate[i]) {
                         _activate[i] = true;
-                        MessageBox.Show("Gift Code is valid.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        tokenCountUpdated?.Invoke(100);
+                        MessageBox.Show(@"Gift Code is valid.", @"Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        TokenCountUpdated?.Invoke(100);
                         txtGiftCode.Text = "";
                         txtGiftCode.Focus();
                         return;
                     }
-                    else {
-                        MessageBox.Show("Gift Code has already been used.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtGiftCode.Text = "";
-                        txtGiftCode.Focus();
-                        return;
-                    }
+
+                    MessageBox.Show(@"Gift Code has already been used.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtGiftCode.Text = "";
+                    txtGiftCode.Focus();
+                    return;
                 }
             }
-            MessageBox.Show("Gift Code is not valid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(@"Gift Code is not valid.", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             txtGiftCode.Text = "";
             txtGiftCode.Focus();
 

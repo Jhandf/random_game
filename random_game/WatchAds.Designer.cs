@@ -1,5 +1,5 @@
 ﻿namespace random_game {
-    partial class WatchADS {
+    partial class WatchAds {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -24,7 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WatchADS));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WatchAds));
             this.btnClose = new System.Windows.Forms.Button();
             this.adsPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.countdownTimer = new System.Windows.Forms.Timer(this.components);
@@ -77,7 +77,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "WatchADS";
+            this.Name = "WatchAds";
             this.Text = "WatchADS";
             ((System.ComponentModel.ISupportInitialize)(this.adsPlayer)).EndInit();
             this.ResumeLayout(false);

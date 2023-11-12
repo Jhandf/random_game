@@ -1,44 +1,36 @@
-﻿using AxWMPLib;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using WMPLib;
 
 namespace random_game {
-    public partial class WatchADS : Form {
-        private bool timeStatus;
-        private bool muteStatus;
-        public event Action<int> activateStatus;
-        private static readonly int maxNVideoADS = 4;
+    public partial class WatchAds : Form {
+        private bool _timeStatus;
+        private bool _muteStatus;
+        public event Action<int> ActivateStatus;
+        private const int maxNVideoAds = 4;
 
-        public WatchADS() {
+        public WatchAds() {
             InitializeComponent();
 
-            adsPlayer.URL = getLinkADS();
+            adsPlayer.URL = getLinkAds();
             adsPlayer.stretchToFit = true;
             adsPlayer.Size = Size;
             adsPlayer.uiMode = "none";
 
-            muteStatus = false;
-            timeStatus = false;
+            _muteStatus = false;
+            _timeStatus = false;
             countdownTimer.Interval = 1000;
             var tick = 29;
             countdownTimer.Tick += (sender, args) => {
                 if (tick <= 0) {
                     countdownTimer.Stop();
-                    timeStatus = true;
+                    _timeStatus = true;
                     btnClose.Location = new Point(307, 12);
-                    btnClose.Text = "There were rewards available";
+                    btnClose.Text = @"There were rewards available";
                     SizeF textSize = TextRenderer.MeasureText(btnClose.Text, btnClose.Font);
                     btnClose.Size = new Size((int)textSize.Width + 20, (int)textSize.Height + 10);
                 } else {
-                    btnClose.Text = "Left " + tick + " second";
+                    btnClose.Text = @"Left " + tick + @" second";
                     SizeF textSize = TextRenderer.MeasureText(btnClose.Text, btnClose.Font);
                     btnClose.Size = new Size((int)textSize.Width + 20, (int)textSize.Height + 10);
                     tick--;
@@ -48,26 +40,25 @@ namespace random_game {
         }
 
         private void btnClose_Click(object sender, EventArgs e) {
-            if (timeStatus) {
-                activateStatus?.Invoke(0);
+            if (_timeStatus) {
+                ActivateStatus?.Invoke(0);
                 adsPlayer.Ctlcontrols.stop();
-                this.Close();
+                Close();
             } else {
-                DialogResult d = MessageBox.Show("If you exit, you will have no reward", "Do you want to exit?",
+                var d = MessageBox.Show(@"If you exit, you will have no reward", @"Do you want to exit?",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-                if (d == DialogResult.Yes) {
-                    adsPlayer.Ctlcontrols.stop();
-                    this.Close();
-                }
+                if (d != DialogResult.Yes) return;
+                adsPlayer.Ctlcontrols.stop();
+                Close();
             }
         }
 
-        int randomVideo() {
+        private static int randomVideo() {
             var random = new Random();
-            return random.Next(0, maxNVideoADS - 1);
+            return random.Next(0, maxNVideoAds - 1);
         }
 
-        private string getLinkADS() {
+        private static string getLinkAds() {
             var x = randomVideo();
             var result = @".\Resources\VideoADS";
             result += x.ToString();
@@ -76,12 +67,12 @@ namespace random_game {
         }
 
         private void btnMute_Click(object sender, EventArgs e) {
-            if (!muteStatus) {
+            if (!_muteStatus) {
                 adsPlayer.settings.volume = 0;
-                muteStatus = true;
+                _muteStatus = true;
             } else {
                 adsPlayer.settings.volume = 100;
-                muteStatus = false;
+                _muteStatus = false;
             }
         }
     }

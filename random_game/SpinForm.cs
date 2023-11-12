@@ -42,7 +42,7 @@ namespace random_game {
             roll3.Show();
             const int spacing = 10;
             // Tính toán tổng độ rộng của tất cả pictureBox và khoảng cách giữa chúng
-            var totalWidth = (PictureBoxWidth + spacing) * PictureBoxCount - spacing;
+            const int totalWidth = (PictureBoxWidth + spacing) * PictureBoxCount - spacing;
             // Tính toán vị trí bắt đầu của hàng ngang để đảm bảo nó giữa form
             var startX = (ClientSize.Width - totalWidth) / 2;
             // Tính toán vị trí y bắt đầu để đảm bảo nó giữa form
