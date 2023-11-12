@@ -98,11 +98,11 @@
     <Compile Include="StartMenu.Designer.cs">
       <DependentUpon>StartMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="tokenMenu.cs">
+    <Compile Include="TokenMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="tokenMenu.Designer.cs">
-      <DependentUpon>tokenMenu.cs</DependentUpon>
+    <Compile Include="TokenMenu.Designer.cs">
+      <DependentUpon>TokenMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="WatchADS.cs">
       <SubType>Form</SubType>
@@ -131,8 +131,8 @@
     <EmbeddedResource Include="StartMenu.resx">
       <DependentUpon>StartMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="tokenMenu.resx">
-      <DependentUpon>tokenMenu.cs</DependentUpon>
+    <EmbeddedResource Include="TokenMenu.resx">
+      <DependentUpon>TokenMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WatchADS.resx">
       <DependentUpon>WatchADS.cs</DependentUpon>

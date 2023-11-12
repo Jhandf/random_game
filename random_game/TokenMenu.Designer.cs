@@ -1,6 +1,6 @@
 ﻿namespace random_game
 {
-    partial class tokenMenu
+    partial class TokenMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tokenMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TokenMenu));
             this.btnClickADS = new System.Windows.Forms.Button();
             this.btnGiftCode = new System.Windows.Forms.Button();
             this.txtTokensCount = new System.Windows.Forms.Label();
@@ -75,7 +75,7 @@
             this.Controls.Add(this.txtTokensCount);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "tokenMenu";
+            this.Name = "TokenMenu";
             this.Text = "tokenMenu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.tokenMenu_FormClosed);
             this.ResumeLayout(false);

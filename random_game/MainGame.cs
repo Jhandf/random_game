@@ -13,13 +13,9 @@ namespace random_game {
         private bool _finishRoll = true;
         private List<Button> _selectedButtons = new List<Button>();
         public static readonly int[] RollInt = new int[3];
-        private int token = _initialTokenCount;
-        public int publicToken {
-            get { return token; }
-            set { 
-                token = value;
-                _updateTokenTxt(value.ToString());
-            }
+        public int _token {
+            get => getTokenCount();
+            set => _updateTokenTxt(value.ToString());
         }
 
         public MainGame() {
@@ -31,7 +27,8 @@ namespace random_game {
                 _initialColors[i] = buttons[i].BackColor;
             }
 
-            _updateTokenTxt(_initialTokenCount.ToString());
+            // _updateTokenTxt(_initialTokenCount.ToString());
+            _token = _initialTokenCount;
         }
 
         private void roll() {
@@ -46,11 +43,7 @@ namespace random_game {
 
             if (RollInt[0] == RollInt[1] && RollInt[1] == RollInt[2]) blinkBtn(RollInt[0] - 1);
 
-            token = calcScore(RollInt); 
-            _updateTokenTxt(getTokenCount() + token > 0
-                ? (getTokenCount() + token).ToString()
-                : @"0");
-
+            _token = getTokenCount() + calcScore(RollInt);
             _finishRoll = true;
         }
 
@@ -65,7 +58,7 @@ namespace random_game {
 
                 if (_selectedButtons.Count >= 3 && !_selectedButtons.Contains(btn)) return;
 
-                if (newValue >= 0) _updateTokenTxt((getTokenCount() - increment).ToString());
+                if (newValue >= 0) _token -= increment;
                 if (newValue < 0) newValue = 0;
                 if (newValue == 0) {
                     setBtnTxt(btn, "");
@@ -77,7 +70,7 @@ namespace random_game {
             } else if (_finishRoll) {
                 resetBtns();
                 _finishRoll = false;
-                _updateTokenTxt(getTokenCount().ToString());
+                _token = getTokenCount();
                 if (getTokenCount() == 0) {
                     updateRollTxt(@"No tokens");
                     return;
@@ -121,11 +114,12 @@ namespace random_game {
         private void _updateTokenTxt(string s) {
             var text = @"Tokens: " + tokenScale(s);
             txtTokensCount.Text = text;
+            Console.WriteLine(text);
         }
 
-        public int getTokenCount() {
+        private int getTokenCount() {
             var rePattern = new Regex(@"(?<=:\s)*\d+");
-            return int.Parse(rePattern.Match(txtTokensCount.Text).Value);
+            return int.TryParse(rePattern.Match(txtTokensCount.Text).Value, out var tokenCount) ? tokenCount : _initialTokenCount;
         }
 
         private void updateScoreTxt(string s) {
@@ -195,8 +189,8 @@ namespace random_game {
             blinkTimer.Start();
         }
 
-        private string tokenScale(string token) {
-            Int32.TryParse(token,out int nToken);
+        private static string tokenScale(string token) {
+            int.TryParse(token,out var nToken);
             var count = 0;
             while (nToken >= 1000) {
                 token = (nToken / 1000).ToString();
@@ -204,22 +198,28 @@ namespace random_game {
                 count++;
             }
 
-            if (count == 1)
-                token += "K";
-            else if (count == 2)
-                token += "M";
-            else if (count == 3)
-                token += "B";
-            else if (count == 4)
-                token += "T";
+            switch (count) {
+                case 1:
+                    token += "K";
+                    break;
+                case 2:
+                    token += "M";
+                    break;
+                case 3:
+                    token += "B";
+                    break;
+                case 4:
+                    token += "T";
+                    break;
+            }
             return token;
         }
 
         private void txtTokensCount_Click(object sender, EventArgs e) {
-            using (var start = new tokenMenu(this)) {
+            using (var start = new TokenMenu(this)) {
                 //Hide();
                 start.ShowDialog();
-                _updateTokenTxt(_initialTokenCount.ToString());
+                // _updateTokenTxt(_initialTokenCount.ToString());
             }
         }
 

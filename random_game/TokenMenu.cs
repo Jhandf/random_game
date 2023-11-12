@@ -9,26 +9,26 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace random_game {
-    public partial class tokenMenu : Form {
+    public partial class TokenMenu : Form {
 
         private int tokenCount;
 
-        public tokenMenu() {
+        public TokenMenu() {
             InitializeComponent();
         }
 
-        private MainGame mainGame = null;
+        private readonly MainGame _mainGame;
 
-        public tokenMenu(Form mG) {
-            mainGame = mG as MainGame;
+        public TokenMenu(Form mG) {
+            _mainGame = mG as MainGame;
             InitializeComponent();
-            tokenCount = mainGame.publicToken;
-            txtTokensCount.Text = mainGame.publicToken.ToString();
+            tokenCount = _mainGame._token;
+            txtTokensCount.Text = _mainGame._token.ToString();
         }
 
         private void btnGiftCode_Click(object sender, EventArgs e) {
 
-            EnterGiftCode giftCodeForm = new EnterGiftCode();
+            var giftCodeForm = new EnterGiftCode();
 
             giftCodeForm.tokenCountUpdated += (newTokenCount) => {
                 tokenCount += newTokenCount;
@@ -39,21 +39,19 @@ namespace random_game {
         }
 
         private void btnClickADS_Click(object sender, EventArgs e) {
-            WatchADS watch = new WatchADS();
+            var watch = new WatchADS();
 
             watch.activateStatus += (timeStatus) => {
-                if (timeStatus == 0) {
-                    tokenCount += 100;
-                    txtTokensCount.Text = tokenCount.ToString();
-                }
+                if (timeStatus != 0) return;
+                tokenCount += 100;
+                txtTokensCount.Text = tokenCount.ToString();
             };
 
             watch.ShowDialog();
         }
 
         private void tokenMenu_FormClosed(object sender, FormClosedEventArgs e) {
-            mainGame.publicToken = tokenCount;
-            Console.WriteLine(tokenCount);
+            _mainGame._token = tokenCount;
         }
     }
 }
