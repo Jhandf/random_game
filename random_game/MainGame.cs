@@ -9,11 +9,11 @@ namespace random_game {
     public partial class MainGame : Form {
         private readonly Button[] _buttons = new Button[6];
         private readonly Color[] _initialColors = new Color[6];
-        private static readonly int _initialTokenCount = 100;
+        private const int initialTokenCount = 100;
         private bool _finishRoll = true;
         private List<Button> _selectedButtons = new List<Button>();
         public static readonly int[] RollInt = new int[3];
-        public int _token {
+        public int token {
             get => getTokenCount();
             set => _updateTokenTxt(value.ToString());
         }
@@ -26,9 +26,7 @@ namespace random_game {
                 _buttons[i] = buttons[i];
                 _initialColors[i] = buttons[i].BackColor;
             }
-
-            // _updateTokenTxt(_initialTokenCount.ToString());
-            _token = _initialTokenCount;
+            token = initialTokenCount;
         }
 
         private void roll() {
@@ -43,7 +41,7 @@ namespace random_game {
 
             if (RollInt[0] == RollInt[1] && RollInt[1] == RollInt[2]) blinkBtn(RollInt[0] - 1);
 
-            _token = getTokenCount() + calcScore(RollInt);
+            token = getTokenCount() + calcScore(RollInt);
             _finishRoll = true;
         }
 
@@ -58,7 +56,7 @@ namespace random_game {
 
                 if (_selectedButtons.Count >= 3 && !_selectedButtons.Contains(btn)) return;
 
-                if (newValue >= 0) _token -= increment;
+                if (newValue >= 0) token -= increment;
                 if (newValue < 0) newValue = 0;
                 if (newValue == 0) {
                     setBtnTxt(btn, "");
@@ -70,7 +68,7 @@ namespace random_game {
             } else if (_finishRoll) {
                 resetBtns();
                 _finishRoll = false;
-                _token = getTokenCount();
+                token = getTokenCount();
                 if (getTokenCount() == 0) {
                     updateRollTxt(@"No tokens");
                     return;
@@ -119,7 +117,7 @@ namespace random_game {
 
         private int getTokenCount() {
             var rePattern = new Regex(@"(?<=:\s)*\d+");
-            return int.TryParse(rePattern.Match(txtTokensCount.Text).Value, out var tokenCount) ? tokenCount : _initialTokenCount;
+            return int.TryParse(rePattern.Match(txtTokensCount.Text).Value, out var tokenCount) ? tokenCount : initialTokenCount;
         }
 
         private void updateScoreTxt(string s) {
@@ -217,9 +215,7 @@ namespace random_game {
 
         private void txtTokensCount_Click(object sender, EventArgs e) {
             using (var start = new TokenMenu(this)) {
-                //Hide();
                 start.ShowDialog();
-                // _updateTokenTxt(_initialTokenCount.ToString());
             }
         }
 

@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace random_game {
     public partial class TokenMenu : Form {
 
-        private int tokenCount;
+        private int _tokenCount;
 
         public TokenMenu() {
             InitializeComponent();
@@ -22,8 +15,9 @@ namespace random_game {
         public TokenMenu(Form mG) {
             _mainGame = mG as MainGame;
             InitializeComponent();
-            tokenCount = _mainGame._token;
-            txtTokensCount.Text = _mainGame._token.ToString();
+            if (_mainGame == null) return;
+            _tokenCount = _mainGame.token;
+            txtTokensCount.Text = _mainGame.token.ToString();
         }
 
         private void btnGiftCode_Click(object sender, EventArgs e) {
@@ -31,8 +25,8 @@ namespace random_game {
             var giftCodeForm = new EnterGiftCode();
 
             giftCodeForm.tokenCountUpdated += (newTokenCount) => {
-                tokenCount += newTokenCount;
-                txtTokensCount.Text = tokenCount.ToString();
+                _tokenCount += newTokenCount;
+                txtTokensCount.Text = _tokenCount.ToString();
             };
 
             giftCodeForm.ShowDialog();
@@ -43,15 +37,15 @@ namespace random_game {
 
             watch.activateStatus += (timeStatus) => {
                 if (timeStatus != 0) return;
-                tokenCount += 100;
-                txtTokensCount.Text = tokenCount.ToString();
+                _tokenCount += 100;
+                txtTokensCount.Text = _tokenCount.ToString();
             };
 
             watch.ShowDialog();
         }
 
         private void tokenMenu_FormClosed(object sender, FormClosedEventArgs e) {
-            _mainGame._token = tokenCount;
+            _mainGame.token = _tokenCount;
         }
     }
 }
