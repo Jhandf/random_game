@@ -26,7 +26,8 @@ namespace random_game {
             rollAnimation.uiMode = "none";
             rollAnimation.stretchToFit = true;
             rollAnimation.Size = Size;
-            rollAnimation.Location = new Point((ClientSize.Width - rollAnimation.Width) / 2, (ClientSize.Height - rollAnimation.Height) / 2);
+            rollAnimation.Location = new Point((ClientSize.Width - rollAnimation.Width) / 2,
+                (ClientSize.Height - rollAnimation.Height) / 2);
         }
 
         private void Hide_All() {

@@ -70,13 +70,11 @@ namespace random_game {
                 if (newValue == 0) {
                     setBtnTxt(btn, "");
                     _selectedButtons.Remove(btn);
-                }
-                else {
+                } else {
                     setBtnTxt(btn, newValue.ToString());
                     if (!_selectedButtons.Contains(btn)) _selectedButtons.Add(btn);
                 }
-            }
-            else if (_finishRoll) {
+            } else if (_finishRoll) {
                 resetBtns();
                 _finishRoll = false;
                 _updateTokenTxt(getTokenCount().ToString());
@@ -100,6 +98,7 @@ namespace random_game {
                 Hide();
                 start.ShowDialog();
             }
+
             Show();
         }
 
@@ -156,10 +155,12 @@ namespace random_game {
             var score = 0;
             for (var i = 0; i < _buttons.Length; i++)
                 if (scores[0] == i + 1 && scores[1] == i + 1 && scores[2] == i + 1) {
+                    score += getBtnInt(_buttons[i]) * 4;
+                } else if (scores[0] == i + 1 && scores[1] == i + 1 || scores[1] == i + 1 && scores[2] == i + 1 ||
+                           scores[0] == i + 1 && scores[2] == i + 1) {
                     score += getBtnInt(_buttons[i]) * 3;
-                }
-                else {
-                    if (scores[0] == i + 1 || scores[1] == i + 1 || scores[2] == i + 1) score += getBtnInt(_buttons[i]);
+                } else {
+                    if (scores[0] == i + 1 || scores[1] == i + 1 || scores[2] == i + 1) score += getBtnInt(_buttons[i]) * 2;
                 }
 
             return score;
@@ -185,8 +186,7 @@ namespace random_game {
                 if (ticks <= 0) {
                     blinkTimer.Stop();
                     setBtnColor(_buttons[index], _initialColors[index]);
-                }
-                else {
+                } else {
                     setBtnColor(_buttons[index],
                         _buttons[index].BackColor == Color.Gray ? _initialColors[index] : Color.Gray);
                     ticks--;
@@ -203,6 +203,7 @@ namespace random_game {
                 nToken /= 1000;
                 count++;
             }
+
             if (count == 1)
                 token += "K";
             else if (count == 2)

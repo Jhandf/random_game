@@ -34,6 +34,7 @@ namespace random_game {
                 pictureBox1.Image = Resources.sound_off;
                 return;
             }
+
             trackBar1.Value = Program.prevVolumeValue;
             Program.volume = Program.prevVolumeValue;
             StartMenu.player.settings.volume = Program.prevVolumeValue;
