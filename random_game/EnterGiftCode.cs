@@ -24,14 +24,28 @@ namespace random_game {
         }
 
         private void btnSubmit_Click(object sender, EventArgs e) {
-            var newTokenCount = 100;
-            for (int i = 0; i <= strGift.Length; i++)
-                if (strGift[i] == txtGiftCode.Text && !_activate[i]) {
-                    _activate[i] = true;
-                    tokenCountUpdated?.Invoke(newTokenCount);
-                    txtGiftCode.Text = "";
-                    txtGiftCode.Focus();
+            for (int i = 0; i < strGift.Length; i++) {
+                if (strGift[i] == txtGiftCode.Text) {
+                    if (!_activate[i]) {
+                        _activate[i] = true;
+                        MessageBox.Show("Gift Code is valid.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tokenCountUpdated?.Invoke(100);
+                        txtGiftCode.Text = "";
+                        txtGiftCode.Focus();
+                        return;
+                    }
+                    else {
+                        MessageBox.Show("Gift Code has already been used.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtGiftCode.Text = "";
+                        txtGiftCode.Focus();
+                        return;
+                    }
                 }
+            }
+            MessageBox.Show("Gift Code is not valid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            txtGiftCode.Text = "";
+            txtGiftCode.Focus();
+
         }
     }
 }
