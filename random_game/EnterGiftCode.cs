@@ -25,7 +25,7 @@ namespace random_game {
         private void btnSubmit_Click(object sender, EventArgs e) {
             var newTokenCount = 100;
             for (int i = 0; i <= strGift.Length; i++)
-                if (strGift[i] == txtGiftCode.Text) {
+                if (strGift[i] == txtGiftCode.Text && !_activate[i]) {
                     _activate[i] = true;
                     tokenCountUpdated?.Invoke(newTokenCount);
                     txtGiftCode.Text = "";
