@@ -28,7 +28,7 @@ namespace random_game {
 
         private void bnt_Option_Click(object sender, EventArgs e) {
             var start = new OptionMenu();
-            player = axWindowsMediaPlayer1; // Set the MediaPlayer property in Form2
+            player = axWindowsMediaPlayer1; // Set the MediaPlayer property in OptionMenu
             Hide();
             start.ShowDialog();
             start.Close();
