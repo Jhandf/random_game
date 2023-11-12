@@ -16,7 +16,12 @@ namespace random_game {
             InitializeComponent();
             if (_mainGame == null) return;
             _tokenCount = _mainGame.token;
-            txtTokensCount.Text = _mainGame.token.ToString();
+            _updateTokenTxt(_tokenCount.ToString());
+        }
+
+        private void _updateTokenTxt(string s) {
+            var text = @"Tokens: " + s;
+            txtTokensCount.Text = text;
         }
 
         private void btnGiftCode_Click(object sender, EventArgs e) {
@@ -24,7 +29,7 @@ namespace random_game {
 
             giftCodeForm.TokenCountUpdated += (newTokenCount) => {
                 _tokenCount += newTokenCount;
-                txtTokensCount.Text = _tokenCount.ToString();
+                _updateTokenTxt(_tokenCount.ToString());
             };
 
             giftCodeForm.ShowDialog();
@@ -36,7 +41,7 @@ namespace random_game {
             watch.ActivateStatus += (timeStatus) => {
                 if (timeStatus != 0) return;
                 _tokenCount += 100;
-                txtTokensCount.Text = _tokenCount.ToString();
+                _updateTokenTxt(_tokenCount.ToString());
             };
 
             watch.ShowDialog();
