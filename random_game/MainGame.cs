@@ -9,10 +9,15 @@ namespace random_game {
     public partial class MainGame : Form {
         private readonly Button[] _buttons = new Button[6];
         private readonly Color[] _initialColors = new Color[6];
-        private readonly int _initialTokenCount = 100;
+        private const int initialTokenCount = 100;
         private bool _finishRoll = true;
         private List<Button> _selectedButtons = new List<Button>();
         public static readonly int[] RollInt = new int[3];
+
+        public int token {
+            get => getTokenCount();
+            set => _updateTokenTxt(value.ToString());
+        }
 
         public MainGame() {
             InitializeComponent();
@@ -23,7 +28,7 @@ namespace random_game {
                 _initialColors[i] = buttons[i].BackColor;
             }
 
-            updateTokenTxt(_initialTokenCount.ToString());
+            token = initialTokenCount;
         }
 
         private void roll() {
@@ -38,10 +43,7 @@ namespace random_game {
 
             if (RollInt[0] == RollInt[1] && RollInt[1] == RollInt[2]) blinkBtn(RollInt[0] - 1);
 
-            updateTokenTxt(getTokenCount() + calcScore(RollInt) > 0
-                ? (getTokenCount() + calcScore(RollInt)).ToString()
-                : @"0");
-
+            token = getTokenCount() + calcScore(RollInt);
             _finishRoll = true;
         }
 
@@ -56,7 +58,7 @@ namespace random_game {
 
                 if (_selectedButtons.Count >= 3 && !_selectedButtons.Contains(btn)) return;
 
-                if (newValue >= 0) updateTokenTxt((getTokenCount() - increment).ToString());
+                if (newValue >= 0) token -= increment;
                 if (newValue < 0) newValue = 0;
                 if (newValue == 0) {
                     setBtnTxt(btn, "");
@@ -68,7 +70,7 @@ namespace random_game {
             } else if (_finishRoll) {
                 resetBtns();
                 _finishRoll = false;
-                updateTokenTxt(getTokenCount().ToString());
+                token = getTokenCount();
                 if (getTokenCount() == 0) {
                     updateRollTxt(@"No tokens");
                     return;
@@ -109,14 +111,17 @@ namespace random_game {
             return int.TryParse(getBtnTxt(btn), out var i) ? i : 0;
         }
 
-        private void updateTokenTxt(string s) {
+        private void _updateTokenTxt(string s) {
             var text = @"Tokens: " + tokenScale(s);
             txtTokensCount.Text = text;
+            Console.WriteLine(text);
         }
 
         private int getTokenCount() {
             var rePattern = new Regex(@"(?<=:\s)*\d+");
-            return int.Parse(rePattern.Match(txtTokensCount.Text).Value);
+            return int.TryParse(rePattern.Match(txtTokensCount.Text).Value, out var tokenCount)
+                ? tokenCount
+                : initialTokenCount;
         }
 
         private void updateScoreTxt(string s) {
@@ -151,7 +156,8 @@ namespace random_game {
                            scores[0] == i + 1 && scores[2] == i + 1) {
                     score += getBtnInt(_buttons[i]) * 3;
                 } else {
-                    if (scores[0] == i + 1 || scores[1] == i + 1 || scores[2] == i + 1) score += getBtnInt(_buttons[i]) * 2;
+                    if (scores[0] == i + 1 || scores[1] == i + 1 || scores[2] == i + 1)
+                        score += getBtnInt(_buttons[i]) * 2;
                 }
 
             return score;
@@ -187,7 +193,7 @@ namespace random_game {
         }
 
         private static string tokenScale(string token) {
-            var nToken = int.Parse(token);
+            int.TryParse(token, out var nToken);
             var count = 0;
             while (nToken >= 1000) {
                 token = (nToken / 1000).ToString();
@@ -195,15 +201,36 @@ namespace random_game {
                 count++;
             }
 
-            if (count == 1)
-                token += "K";
-            else if (count == 2)
-                token += "M";
-            else if (count == 3)
-                token += "B";
-            else if (count == 4)
-                token += "T";
+            switch (count) {
+                case 1:
+                    token += "K";
+                    break;
+                case 2:
+                    token += "M";
+                    break;
+                case 3:
+                    token += "B";
+                    break;
+                case 4:
+                    token += "T";
+                    break;
+            }
+
             return token;
+        }
+
+        private void txtTokensCount_Click(object sender, EventArgs e) {
+            using (var start = new TokenMenu(this)) {
+                start.ShowDialog();
+            }
+        }
+
+        private void txtTokensCount_MouseHover(object sender, EventArgs e) {
+            txtTokensCount.Image = Properties.Resources.iconAdd;
+        }
+
+        private void txtTokensCount_MouseLeave(object sender, EventArgs e) {
+            txtTokensCount.Image = Properties.Resources.iconToken;
         }
     }
 }
