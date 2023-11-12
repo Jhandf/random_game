@@ -37,8 +37,7 @@ namespace random_game {
                     btnClose.Text = "There were rewards available";
                     SizeF textSize = TextRenderer.MeasureText(btnClose.Text, btnClose.Font);
                     btnClose.Size = new Size((int)textSize.Width + 20, (int)textSize.Height + 10);
-                }
-                else {
+                } else {
                     btnClose.Text = "Left " + tick + " second";
                     SizeF textSize = TextRenderer.MeasureText(btnClose.Text, btnClose.Font);
                     btnClose.Size = new Size((int)textSize.Width + 20, (int)textSize.Height + 10);
@@ -53,9 +52,9 @@ namespace random_game {
                 activateStatus?.Invoke(0);
                 adsPlayer.Ctlcontrols.stop();
                 this.Close();
-            }
-            else {
-                DialogResult d = MessageBox.Show("If you exit, you will have no reward", "Do you want to exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            } else {
+                DialogResult d = MessageBox.Show("If you exit, you will have no reward", "Do you want to exit?",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if (d == DialogResult.Yes) {
                     adsPlayer.Ctlcontrols.stop();
                     this.Close();
@@ -80,8 +79,7 @@ namespace random_game {
             if (!muteStatus) {
                 adsPlayer.settings.volume = 0;
                 muteStatus = true;
-            }
-            else {
+            } else {
                 adsPlayer.settings.volume = 100;
                 muteStatus = false;
             }

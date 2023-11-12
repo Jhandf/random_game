@@ -10,8 +10,9 @@ using System.Windows.Forms;
 
 namespace random_game {
     public partial class EnterGiftCode : Form {
+        private static readonly string[] strGift = new string[]
+            { "9T96KJNE2LVM", "NTQP2KPEJMUH", "VA97KJNF24UV", "ZT8MLL8GCYKM", "WA845MQHUHKH", "3BRLL59ZCZKD" };
 
-        private static readonly string[] strGift = new string[] { "9T96KJNE2LVM", "NTQP2KPEJMUH", "VA97KJNF24UV", "ZT8MLL8GCYKM", "WA845MQHUHKH", "3BRLL59ZCZKD" };
         private bool[] _activate = new bool[strGift.Length];
 
         public event Action<int> tokenCountUpdated;
@@ -32,6 +33,5 @@ namespace random_game {
                     txtGiftCode.Focus();
                 }
         }
-
     }
 }

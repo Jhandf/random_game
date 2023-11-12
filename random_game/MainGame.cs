@@ -13,6 +13,7 @@ namespace random_game {
         private bool _finishRoll = true;
         private List<Button> _selectedButtons = new List<Button>();
         public static readonly int[] RollInt = new int[3];
+
         public int token {
             get => getTokenCount();
             set => _updateTokenTxt(value.ToString());
@@ -26,6 +27,7 @@ namespace random_game {
                 _buttons[i] = buttons[i];
                 _initialColors[i] = buttons[i].BackColor;
             }
+
             token = initialTokenCount;
         }
 
@@ -117,7 +119,9 @@ namespace random_game {
 
         private int getTokenCount() {
             var rePattern = new Regex(@"(?<=:\s)*\d+");
-            return int.TryParse(rePattern.Match(txtTokensCount.Text).Value, out var tokenCount) ? tokenCount : initialTokenCount;
+            return int.TryParse(rePattern.Match(txtTokensCount.Text).Value, out var tokenCount)
+                ? tokenCount
+                : initialTokenCount;
         }
 
         private void updateScoreTxt(string s) {
@@ -152,7 +156,8 @@ namespace random_game {
                            scores[0] == i + 1 && scores[2] == i + 1) {
                     score += getBtnInt(_buttons[i]) * 3;
                 } else {
-                    if (scores[0] == i + 1 || scores[1] == i + 1 || scores[2] == i + 1) score += getBtnInt(_buttons[i]) * 2;
+                    if (scores[0] == i + 1 || scores[1] == i + 1 || scores[2] == i + 1)
+                        score += getBtnInt(_buttons[i]) * 2;
                 }
 
             return score;
@@ -188,7 +193,7 @@ namespace random_game {
         }
 
         private static string tokenScale(string token) {
-            int.TryParse(token,out var nToken);
+            int.TryParse(token, out var nToken);
             var count = 0;
             while (nToken >= 1000) {
                 token = (nToken / 1000).ToString();
@@ -210,6 +215,7 @@ namespace random_game {
                     token += "T";
                     break;
             }
+
             return token;
         }
 

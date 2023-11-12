@@ -3,7 +3,6 @@ using System.Windows.Forms;
 
 namespace random_game {
     public partial class TokenMenu : Form {
-
         private int _tokenCount;
 
         public TokenMenu() {
@@ -21,7 +20,6 @@ namespace random_game {
         }
 
         private void btnGiftCode_Click(object sender, EventArgs e) {
-
             var giftCodeForm = new EnterGiftCode();
 
             giftCodeForm.tokenCountUpdated += (newTokenCount) => {
