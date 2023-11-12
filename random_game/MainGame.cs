@@ -114,7 +114,6 @@ namespace random_game {
         private void _updateTokenTxt(string s) {
             var text = @"Tokens: " + tokenScale(s);
             txtTokensCount.Text = text;
-            Console.WriteLine(text);
         }
 
         private int getTokenCount() {
@@ -134,7 +133,6 @@ namespace random_game {
             var randomNumber1 = rnd.Next(1, 7);
             var randomNumber2 = rnd.Next(1, 7);
             var randomNumber3 = rnd.Next(1, 7);
-            Console.WriteLine(randomNumber1 + @" " + randomNumber2 + @" " + randomNumber3);
             return randomNumber1 + @" " + randomNumber2 + @" " + randomNumber3;
         }
 
