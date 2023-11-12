@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(tokenMenu));
             this.btnClickADS = new System.Windows.Forms.Button();
             this.btnGiftCode = new System.Windows.Forms.Button();
             this.txtTokensCount = new System.Windows.Forms.Label();
@@ -55,7 +56,7 @@
             // 
             // txtTokensCount
             // 
-            this.txtTokensCount.Image = global::random_game.Properties.Resources.iconToken;
+            this.txtTokensCount.Image = ((System.Drawing.Image)(resources.GetObject("txtTokensCount.Image")));
             this.txtTokensCount.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.txtTokensCount.Location = new System.Drawing.Point(179, -2);
             this.txtTokensCount.Name = "txtTokensCount";
@@ -76,6 +77,7 @@
             this.MinimizeBox = false;
             this.Name = "tokenMenu";
             this.Text = "tokenMenu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.tokenMenu_FormClosed);
             this.ResumeLayout(false);
 
         }

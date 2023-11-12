@@ -11,13 +11,19 @@ using System.Windows.Forms;
 namespace random_game {
     public partial class tokenMenu : Form {
 
-        MainGame game = new MainGame();
         private int tokenCount;
 
         public tokenMenu() {
             InitializeComponent();
-            tokenCount = MainGame._initialTokenCount;
-            txtTokensCount.Text = game._updateTokenTxt(tokenCount.ToString());
+        }
+
+        private MainGame mainGame = null;
+
+        public tokenMenu(Form mG) {
+            mainGame = mG as MainGame;
+            InitializeComponent();
+            tokenCount = mainGame.publicToken;
+            txtTokensCount.Text = mainGame.publicToken.ToString();
         }
 
         private void btnGiftCode_Click(object sender, EventArgs e) {
@@ -26,8 +32,7 @@ namespace random_game {
 
             giftCodeForm.tokenCountUpdated += (newTokenCount) => {
                 tokenCount += newTokenCount;
-                MainGame._initialTokenCount = tokenCount;
-                txtTokensCount.Text = game._updateTokenTxt(tokenCount.ToString());
+                txtTokensCount.Text = tokenCount.ToString();
             };
 
             giftCodeForm.ShowDialog();
@@ -38,12 +43,17 @@ namespace random_game {
 
             watch.activateStatus += (timeStatus) => {
                 if (timeStatus == 0) {
-                    MainGame._initialTokenCount = tokenCount = game.getTokenCount() + 100;
-                    txtTokensCount.Text = game._updateTokenTxt(tokenCount.ToString());
+                    tokenCount += 100;
+                    txtTokensCount.Text = tokenCount.ToString();
                 }
             };
 
             watch.ShowDialog();
+        }
+
+        private void tokenMenu_FormClosed(object sender, FormClosedEventArgs e) {
+            mainGame.publicToken = tokenCount;
+            Console.WriteLine(tokenCount);
         }
     }
 }

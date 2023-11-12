@@ -9,10 +9,18 @@ namespace random_game {
     public partial class MainGame : Form {
         private readonly Button[] _buttons = new Button[6];
         private readonly Color[] _initialColors = new Color[6];
-        public static int _initialTokenCount = 100;
+        private static readonly int _initialTokenCount = 100;
         private bool _finishRoll = true;
         private List<Button> _selectedButtons = new List<Button>();
         public static readonly int[] RollInt = new int[3];
+        private int token = _initialTokenCount;
+        public int publicToken {
+            get { return token; }
+            set { 
+                token = value;
+                _updateTokenTxt(value.ToString());
+            }
+        }
 
         public MainGame() {
             InitializeComponent();
@@ -23,7 +31,7 @@ namespace random_game {
                 _initialColors[i] = buttons[i].BackColor;
             }
 
-            updateTokenTxt(_initialTokenCount.ToString());
+            _updateTokenTxt(_initialTokenCount.ToString());
         }
 
         private void roll() {
@@ -38,8 +46,9 @@ namespace random_game {
 
             if (RollInt[0] == RollInt[1] && RollInt[1] == RollInt[2]) blinkBtn(RollInt[0] - 1);
 
-            updateTokenTxt(getTokenCount() + calcScore(RollInt) > 0
-                ? (getTokenCount() + calcScore(RollInt)).ToString()
+            token = calcScore(RollInt); 
+            _updateTokenTxt(getTokenCount() + token > 0
+                ? (getTokenCount() + token).ToString()
                 : @"0");
 
             _finishRoll = true;
@@ -56,7 +65,7 @@ namespace random_game {
 
                 if (_selectedButtons.Count >= 3 && !_selectedButtons.Contains(btn)) return;
 
-                if (newValue >= 0) updateTokenTxt((getTokenCount() - increment).ToString());
+                if (newValue >= 0) _updateTokenTxt((getTokenCount() - increment).ToString());
                 if (newValue < 0) newValue = 0;
                 if (newValue == 0) {
                     setBtnTxt(btn, "");
@@ -70,7 +79,7 @@ namespace random_game {
             else if (_finishRoll) {
                 resetBtns();
                 _finishRoll = false;
-                updateTokenTxt(getTokenCount().ToString());
+                _updateTokenTxt(getTokenCount().ToString());
                 if (getTokenCount() == 0) {
                     updateRollTxt(@"No tokens");
                     return;
@@ -110,14 +119,9 @@ namespace random_game {
             return int.TryParse(getBtnTxt(btn), out var i) ? i : 0;
         }
 
-        private void updateTokenTxt(string s) {
+        private void _updateTokenTxt(string s) {
             var text = @"Tokens: " + tokenScale(s);
             txtTokensCount.Text = text;
-        }
-
-        public string _updateTokenTxt(string s) {
-            var text = @"Tokens: " + tokenScale(s);
-            return text;
         }
 
         public int getTokenCount() {
@@ -191,8 +195,8 @@ namespace random_game {
             blinkTimer.Start();
         }
 
-        private static string tokenScale(string token) {
-            var nToken = int.Parse(token);
+        private string tokenScale(string token) {
+            Int32.TryParse(token,out int nToken);
             var count = 0;
             while (nToken >= 1000) {
                 token = (nToken / 1000).ToString();
@@ -211,20 +215,18 @@ namespace random_game {
         }
 
         private void txtTokensCount_Click(object sender, EventArgs e) {
-            using (var start = new tokenMenu()) {
+            using (var start = new tokenMenu(this)) {
                 //Hide();
                 start.ShowDialog();
-                updateTokenTxt(_initialTokenCount.ToString());
+                _updateTokenTxt(_initialTokenCount.ToString());
             }
         }
 
         private void txtTokensCount_MouseHover(object sender, EventArgs e) {
-            txtTokensCount.Text = "Add Token";
             txtTokensCount.Image = Properties.Resources.iconAdd;
         }
 
         private void txtTokensCount_MouseLeave(object sender, EventArgs e) {
-            updateTokenTxt(_initialTokenCount.ToString());
             txtTokensCount.Image = Properties.Resources.iconToken;
         }
     }

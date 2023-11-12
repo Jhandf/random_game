@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace random_game {
     public partial class EnterGiftCode : Form {
 
-        string strGiftCode = "TTT";
+        string strGift0 = "TTT";
         string strGift1 = "TS";
         public event Action<int> tokenCountUpdated;
 
@@ -21,7 +21,7 @@ namespace random_game {
 
         private void btnSubmit_Click(object sender, EventArgs e) {
             var newTokenCount = 100;
-            if (strGiftCode == txtGiftCode.Text || strGift1 == txtGiftCode.Text) {
+            if (strGift0 == txtGiftCode.Text || strGift1 == txtGiftCode.Text) {
                 tokenCountUpdated?.Invoke(newTokenCount);
                 txtGiftCode.Text = "";
                 txtGiftCode.Focus();
