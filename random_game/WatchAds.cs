@@ -51,6 +51,7 @@ namespace random_game {
                 adsPlayer.Ctlcontrols.stop();
                 Close();
             }
+            
         }
 
         private static int randomVideo() {

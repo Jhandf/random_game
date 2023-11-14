@@ -31,20 +31,21 @@ namespace random_game {
                 _tokenCount += newTokenCount;
                 _updateTokenTxt(_tokenCount.ToString());
             };
-
             giftCodeForm.ShowDialog();
+
         }
 
         private void btnClickADS_Click(object sender, EventArgs e) {
             var watch = new WatchAds();
-
             watch.ActivateStatus += (timeStatus) => {
                 if (timeStatus != 0) return;
                 _tokenCount += 100;
                 _updateTokenTxt(_tokenCount.ToString());
             };
-
+            Hide();
             watch.ShowDialog();
+            watch.Close();
+            Show();
         }
 
         private void tokenMenu_FormClosed(object sender, FormClosedEventArgs e) {
