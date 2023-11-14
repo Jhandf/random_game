@@ -64,9 +64,9 @@ namespace random_game {
             this.bnt_Exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bnt_Exit.TabIndex = 3;
             this.bnt_Exit.TabStop = false;
-            this.bnt_Exit.Click += new System.EventHandler(this.bnt_Exit_Click);
-            this.bnt_Exit.MouseLeave += new System.EventHandler(this.bnt_Exit_MouseLeave);
-            this.bnt_Exit.MouseHover += new System.EventHandler(this.bnt_Exit_MouseHover);
+            this.bnt_Exit.Click += new System.EventHandler(this.btnExit_Click);
+            this.bnt_Exit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
+            this.bnt_Exit.MouseHover += new System.EventHandler(this.btnExit_MouseHover);
             //
             // bnt_Option
             //
@@ -78,9 +78,9 @@ namespace random_game {
             this.bnt_Option.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bnt_Option.TabIndex = 2;
             this.bnt_Option.TabStop = false;
-            this.bnt_Option.Click += new System.EventHandler(this.bnt_Option_Click);
-            this.bnt_Option.MouseLeave += new System.EventHandler(this.bnt_Option_MouseLeave);
-            this.bnt_Option.MouseHover += new System.EventHandler(this.bnt_Option_MouseHover);
+            this.bnt_Option.Click += new System.EventHandler(this.btnOption_Click);
+            this.bnt_Option.MouseLeave += new System.EventHandler(this.btnOption_MouseLeave);
+            this.bnt_Option.MouseHover += new System.EventHandler(this.btnOption_MouseHover);
             //
             // bnt_Start
             //
@@ -92,9 +92,9 @@ namespace random_game {
             this.bnt_Start.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bnt_Start.TabIndex = 1;
             this.bnt_Start.TabStop = false;
-            this.bnt_Start.Click += new System.EventHandler(this.bnt_Start_Click);
-            this.bnt_Start.MouseLeave += new System.EventHandler(this.bnt_Start_MouseLeave);
-            this.bnt_Start.MouseHover += new System.EventHandler(this.bnt_Start_MouseHover);
+            this.bnt_Start.Click += new System.EventHandler(this.btnStart_Click);
+            this.bnt_Start.MouseLeave += new System.EventHandler(this.btnStart_MouseLeave);
+            this.bnt_Start.MouseHover += new System.EventHandler(this.btnStart_MouseHover);
             //
             // flowLayoutPanel1
             //

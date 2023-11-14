@@ -18,7 +18,7 @@ namespace random_game {
             axWindowsMediaPlayer1.settings.volume = Program.volume;
         }
 
-        private void bnt_Start_Click(object sender, EventArgs e) {
+        private void btnStart_Click(object sender, EventArgs e) {
             var start = new MainGame();
             Hide();
             start.ShowDialog();
@@ -26,7 +26,7 @@ namespace random_game {
             Show();
         }
 
-        private void bnt_Option_Click(object sender, EventArgs e) {
+        private void btnOption_Click(object sender, EventArgs e) {
             var start = new OptionMenu();
             player = axWindowsMediaPlayer1; // Set the MediaPlayer property in OptionMenu
             Hide();
@@ -35,31 +35,31 @@ namespace random_game {
             Show();
         }
 
-        private void bnt_Exit_Click(object sender, EventArgs e) {
+        private void btnExit_Click(object sender, EventArgs e) {
             Close();
         }
 
-        private void bnt_Start_MouseHover(object sender, EventArgs e) {
+        private void btnStart_MouseHover(object sender, EventArgs e) {
             bnt_Start.Image = Resources.start_hover;
         }
 
-        private void bnt_Option_MouseHover(object sender, EventArgs e) {
+        private void btnOption_MouseHover(object sender, EventArgs e) {
             bnt_Option.Image = Resources.backgroundmusic_hover;
         }
 
-        private void bnt_Exit_MouseHover(object sender, EventArgs e) {
+        private void btnExit_MouseHover(object sender, EventArgs e) {
             bnt_Exit.Image = Resources.exit_hover;
         }
 
-        private void bnt_Start_MouseLeave(object sender, EventArgs e) {
+        private void btnStart_MouseLeave(object sender, EventArgs e) {
             bnt_Start.Image = Resources.start_normal;
         }
 
-        private void bnt_Option_MouseLeave(object sender, EventArgs e) {
+        private void btnOption_MouseLeave(object sender, EventArgs e) {
             bnt_Option.Image = Resources.backgroundmusic;
         }
 
-        private void bnt_Exit_MouseLeave(object sender, EventArgs e) {
+        private void btnExit_MouseLeave(object sender, EventArgs e) {
             bnt_Exit.Image = Resources.exit_normal;
         }
     }
